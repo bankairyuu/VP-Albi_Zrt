@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VP_Albi_Zrt_DESKTOP.Logic.PermissionHandling;
 
 namespace VP_Albi_Zrt_DESKTOP
 {
@@ -23,6 +24,28 @@ namespace VP_Albi_Zrt_DESKTOP
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Login()
+        {
+
+            if (LoginHandler.Login(usernameTextBox.Text, passwordTextBox.Password))
+            {
+                // Be tudtunk jelentkezni, indulhat a móka
+            }
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+                Login();
+        }
+
+        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                Login();
+            }
         }
     }
 }
