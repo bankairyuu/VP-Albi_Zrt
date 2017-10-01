@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
 
         <TextBox     Name="usernameTextBox" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
-        <PasswordBox Name="passwordTextBox" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
+        <PasswordBox Name="passwordTextBox" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" KeyDown="passwordTextBox_KeyDown"/>
         <Button      Name="LoginButton"     Grid.Column="1" Grid.Row="5" Content="Login" Click="LoginButton_Click"/>
     </Grid>
 </Window>

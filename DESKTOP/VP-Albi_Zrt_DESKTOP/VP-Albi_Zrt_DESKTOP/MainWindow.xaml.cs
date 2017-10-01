@@ -32,6 +32,7 @@ namespace VP_Albi_Zrt_DESKTOP
             if (LoginHandler.Login(usernameTextBox.Text, passwordTextBox.Password))
             {
                 // Be tudtunk jelentkezni, indulhat a móka
+                MessageBox.Show("");
             }
         }
 
