@@ -26,8 +26,8 @@
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
-        <TextBox     Name="usernameTextBox" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
-        <PasswordBox Name="passwordTextBox" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" KeyDown="passwordTextBox_KeyDown"/>
+        <TextBox     Name="usernameTextBox" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" ToolTip="username"/>
+        <PasswordBox Name="passwordTextBox" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" KeyDown="passwordTextBox_KeyDown" ToolTip="password"/>
         <Button      Name="LoginButton"     Grid.Column="1" Grid.Row="5" Content="Login" Click="LoginButton_Click"/>
         <!--
         <Label Content="I don't remember to my password, please help me!" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="8" Grid.Column="1" Grid.Row="7" FontWeight="Normal" FontStyle="Italic" VerticalAlignment="Center" HorizontalAlignment="Right"/>

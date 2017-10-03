@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VP_Albi_Zrt_DESKTOP.Pages
+namespace VP_Albi_Zrt_DESKTOP.Windows
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for VP_Albi_Zrt_Main.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class VP_Albi_Zrt_Main : Window
     {
-        public Page1()
+        public VP_Albi_Zrt_Main()
         {
             InitializeComponent();
         }

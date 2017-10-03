@@ -72,11 +72,8 @@
     <Compile Include="Model\MonthlyFees.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="Pages\Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\MainApplicationWindow.xaml.cs">
-      <DependentUpon>MainApplicationWindow.xaml</DependentUpon>
+    <Compile Include="Windows\VP_Albi_Zrt_Main.xaml.cs">
+      <DependentUpon>VP_Albi_Zrt_Main.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,11 +88,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\Page1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\MainApplicationWindow.xaml">
+    <Page Include="Windows\VP_Albi_Zrt_Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,7 +119,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pages\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
