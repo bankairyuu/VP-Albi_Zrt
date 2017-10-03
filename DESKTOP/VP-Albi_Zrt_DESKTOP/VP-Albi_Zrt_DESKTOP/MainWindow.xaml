@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VP_Albi_Zrt_DESKTOP"
         mc:Ignorable="d"
-        Title="Login" Height="200" Width="400" FontFamily="Consolas" FontWeight="Bold" HorizontalAlignment="Center" HorizontalContentAlignment="Center" ResizeMode="CanMinimize" VerticalAlignment="Center" VerticalContentAlignment="Center" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="200" Width="400" FontFamily="Consolas" FontWeight="Bold" HorizontalAlignment="Center" HorizontalContentAlignment="Center" ResizeMode="CanMinimize" VerticalAlignment="Center" VerticalContentAlignment="Center" WindowStartupLocation="CenterScreen" Icon="VP-Albi_Zrt.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
