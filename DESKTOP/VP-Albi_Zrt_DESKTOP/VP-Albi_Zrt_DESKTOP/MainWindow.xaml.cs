@@ -34,6 +34,10 @@ namespace VP_Albi_Zrt_DESKTOP
                 // Be tudtunk jelentkezni, indulhat a móka
                 MessageBox.Show("");
             }
+            else
+            {
+                MessageBox.Show("Wrong username/password");
+            }
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
