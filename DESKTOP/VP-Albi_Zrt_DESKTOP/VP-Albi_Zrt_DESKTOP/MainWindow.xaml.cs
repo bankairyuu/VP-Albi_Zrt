@@ -21,7 +21,6 @@ namespace VP_Albi_Zrt_DESKTOP
     /// </summary>
     public partial class MainWindow : Window
     {
-        string _Username;
         public MainWindow()
         {
             InitializeComponent();
@@ -33,7 +32,6 @@ namespace VP_Albi_Zrt_DESKTOP
             if (LoginHandler.Login(usernameTextBox.Text, passwordTextBox.Password))
             {
                 // Be tudtunk jelentkezni, indulhat a móka
-                _Username = usernameTextBox.Text;
                 VP_Albi_Zrt_DESKTOP.Windows.VP_Albi_Zrt_Main Main = new Windows.VP_Albi_Zrt_Main();
                 Main.Show();
                 this.Close();

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VP_Albi_Zrt_DESKTOP.Pages;
+using VP_Albi_Zrt_DESKTOP;
 
 namespace VP_Albi_Zrt_DESKTOP.Windows
 {
@@ -22,6 +24,32 @@ namespace VP_Albi_Zrt_DESKTOP.Windows
         public VP_Albi_Zrt_Main()
         {
             InitializeComponent();
+            ActivePage.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
+            ActivePage.Content = new DefaultPage();
+        }
+
+        private void UsersButton_Click(object sender, RoutedEventArgs e)
+        {
+            ActivePage.Content = new UsersPage();
+            this.Title = "VP-Albi Zrt. :: User datas :: ";
+        }
+
+        private void TasksButton_Click(object sender, RoutedEventArgs e)
+        {
+            ActivePage.Content = new TasksPage();
+            this.Title = "VP-Albi Zrt. :: Task datas :: ";
+        }
+
+        private void ExpansesButton_Click(object sender, RoutedEventArgs e)
+        {
+            ActivePage.Content = new ExpensesPage();
+            this.Title = "VP-Albi Zrt. :: Expense datas :: ";
+        }
+
+        private void FeesButton_Click(object sender, RoutedEventArgs e)
+        {
+            ActivePage.Content = new FeesPage();
+            this.Title = "VP-Albi Zrt. :: Fee datas :: ";
         }
     }
 }

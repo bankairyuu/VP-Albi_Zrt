@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VP_Albi_Zrt_DESKTOP.Model
 {
-    class User
+    public class User
     {
         public User() { }
 
