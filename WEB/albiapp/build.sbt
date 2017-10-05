@@ -27,9 +27,17 @@ libraryDependencies += "org.postgresql" % "postgresql" % "9.4-1200-jdbc41"
 // https://mvnrepository.com/artifact/com.vaadin/vaadin-server
 libraryDependencies += "com.vaadin" % "vaadin-server" % "8.1.0"
 
+// https://mvnrepository.com/artifact/com.vaadin/vaadin-themes
+libraryDependencies += "com.vaadin" % "vaadin-themes" % "8.1.5"
 
-// https://mvnrepository.com/artifact/javax.servlet/servlet-api
-libraryDependencies += "javax.servlet" % "servlet-api" % "2.5" % "provided"
+// https://mvnrepository.com/artifact/com.vaadin/vaadin-client-compiled
+libraryDependencies += "com.vaadin" % "vaadin-client-compiled" % "8.1.5"
+
+
+
+// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+libraryDependencies += "javax.servlet" % "javax.servlet-api" % "3.1.0"
+
 
 
 

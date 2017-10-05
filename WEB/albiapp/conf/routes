@@ -24,3 +24,11 @@ POST     /api/expenses/create          controllers.api.ExpenseApi.create
 POST     /api/expenses/update          controllers.api.ExpenseApi.update
 GET     /api/expenses/delete/:expenseId   controllers.api.ExpenseApi.delete(expenseId: Long)
 GET     /api/expenses/markAsPaid/:expenseId   controllers.api.ExpenseApi.markAsPaid(expenseId: Long)
+
+
+GET     /vaadin*args             controllers.vaadin.VaadinController.vaadinUI(args)
+POST    /vaadin*args             controllers.vaadin.VaadinController.vaadinUI(args)
+
+GET     /vaadin             controllers.vaadin.VaadinController.vaadinUI(args= null)
+
+GET     /VAADIN/*file       controllers.vaadin.VaadinController.assets( file)
