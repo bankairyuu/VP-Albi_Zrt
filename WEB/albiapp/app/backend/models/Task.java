@@ -27,6 +27,8 @@ public class Task {
     @ManyToOne
     public FlatUser to;
 
+    public String name;
+
     public String description;
 
     public TaskStatus taskStatus;

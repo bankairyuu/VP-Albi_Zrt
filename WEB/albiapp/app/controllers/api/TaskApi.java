@@ -29,8 +29,8 @@ public class TaskApi extends Controller {
 
         ApiTask apiTask = Json.fromJson(request().body().asJson(), ApiTask.class);
 
-        Task task = new Task(userRepository.findById(apiTask.from.id), userRepository.findById(apiTask.to.id),
-                apiTask.description, Task.TaskStatus.valueOf(apiTask.taskStatus), apiTask.plannedCompletionDate, apiTask.acceptanceMessage);
+        Task task = new Task(userRepository.findById(apiTask.From.id), userRepository.findById(apiTask.To.id),
+                apiTask.Description, Task.TaskStatus.valueOf(apiTask.TaskStatus), apiTask.PlannedCompletionDate, apiTask.AcceptanceMessage);
 
         taskRepository.save(task);
 
@@ -41,10 +41,10 @@ public class TaskApi extends Controller {
     public Result update() {
         ApiTask apiTask = Json.fromJson(request().body().asJson(), ApiTask.class);
 
-        Task task = new Task( userRepository.findById(apiTask.from.id), userRepository.findById(apiTask.to.id),
-                apiTask.description, Task.TaskStatus.valueOf(apiTask.taskStatus), apiTask.plannedCompletionDate, apiTask.acceptanceMessage);
+        Task task = new Task( userRepository.findById(apiTask.From.id), userRepository.findById(apiTask.To.id),
+                apiTask.Description, Task.TaskStatus.valueOf(apiTask.TaskStatus), apiTask.PlannedCompletionDate, apiTask.AcceptanceMessage);
 
-        task.id = apiTask.id;
+        task.id = apiTask.ID;
 
         taskRepository.save(task);
 
@@ -52,8 +52,8 @@ public class TaskApi extends Controller {
     }
 
     //@Secured
-    public Result delete(long userId) {
-        Task task = taskRepository.findById(userId);
+    public Result delete(long taskId) {
+        Task task = taskRepository.findById(taskId);
         taskRepository.delete(task);
 
         return ok();

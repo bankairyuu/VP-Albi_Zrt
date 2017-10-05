@@ -5,31 +5,34 @@ import backend.models.Task;
 import java.util.Date;
 
 public class ApiTask {
-    public long id;
+    public long ID;
 
-    public Date creationDate = new Date();
+    public Date CreationDate = new Date();
 
-    public ApiUser from;
+    public ApiUser From;
 
-    public ApiUser to;
+    public ApiUser To;
 
-    public String description;
+    public String Name;
 
-    public String taskStatus;
+    public String Description;
 
-    public Date plannedCompletionDate;
+    public String TaskStatus;
 
-    public String acceptanceMessage;
+    public Date PlannedCompletionDate;
+
+    public String AcceptanceMessage;
 
     public ApiTask(Task task) {
-        this.id = task.id;
-        this.creationDate = task.creationDate;
-        this.from = new ApiUser(task.from);
-        this.to = new ApiUser(task.to);
-        this.description = task.description;
-        this.taskStatus = task.taskStatus.name();
-        this.plannedCompletionDate = task.plannedCompletionDate;
-        this.acceptanceMessage = task.acceptanceMessage;
+        this.ID = task.id;
+        this.CreationDate = task.creationDate;
+        this.From = new ApiUser(task.from);
+        this.To = new ApiUser(task.to);
+        this.Name = task.name;
+        this.Description = task.description;
+        this.TaskStatus = task.taskStatus.name();
+        this.PlannedCompletionDate = task.plannedCompletionDate;
+        this.AcceptanceMessage = task.acceptanceMessage;
     }
 
     public ApiTask() {
