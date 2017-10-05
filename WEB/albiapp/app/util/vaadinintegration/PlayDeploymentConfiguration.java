@@ -21,7 +21,7 @@ public class PlayDeploymentConfiguration implements DeploymentConfiguration {
     private boolean closeIdleSessions = false;
     private String widgetset = "com.vaadin.DefaultWidgetSet";
     private boolean standalone = true;
-    private int sessionTimeout = 1800;
+    private int sessionTimeout = 40000;
     private PushMode pushMode = PushMode.DISABLED;
 
 

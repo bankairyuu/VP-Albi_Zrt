@@ -3,7 +3,6 @@ package backend.repositories;
 import play.db.jpa.JPAApi;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -48,5 +47,13 @@ public class GenericRepository<T> {
 
     public void delete(T t) {
         em().remove(t);
+    }
+
+    public Integer count() {
+        CriteriaBuilder cb = em().getCriteriaBuilder();
+        CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+        cq.select(cb.count(cq.from(entityClass)));
+
+        return Math.toIntExact(em().createQuery(cq).getSingleResult());
     }
 }

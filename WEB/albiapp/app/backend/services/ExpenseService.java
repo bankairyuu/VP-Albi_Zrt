@@ -6,6 +6,7 @@ import backend.repositories.ExpenseRepository;
 import javax.inject.Inject;
 
 public class ExpenseService {
+    //Inject me now
     @Inject
     private ExpenseRepository expenseRepository;
 
