@@ -2,7 +2,10 @@ package controllers.api;
 
 import backend.models.FlatUser;
 import backend.repositories.UserRepository;
+import com.fasterxml.jackson.databind.JsonNode;
 import controllers.api.models.ApiUser;
+import play.data.Form;
+import play.data.FormFactory;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Controller;
@@ -12,58 +15,51 @@ import javax.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Transactional
 public class UserApi extends Controller {
 
     @Inject
     private UserRepository userRepository;
 
-    ////@Secured
-    /*@ApiOperation(value = "List rooms", httpMethod = "GET" , response = List.class,
-            consumes = "application/json", produces = "application/json")*/
+    @Inject
+    private FormFactory formFactory;
 
-    @Transactional
-    public Result apiUsers() {
+    public Result list() {
         return ok(Json.toJson(userRepository.findAll().stream().map(ApiUser::new).collect(Collectors.toList())));
     }
 
-/*    @Path("/Create/")
-    @POST
-    @Consumes("application/json")
     //@Secured
-    @ApiOperation(value = "Create user", httpMethod = "POST" ,
-            consumes = "application/json")
-    public void createUser(ApiUser apiUser) {
-        FlatUser flatUser = new FlatUser(apiUser.getName(), apiUser.getBankAccountNumber(), apiUser.getPhoneNumber(),
-                apiUser.getEmail(), apiUser.getNickname());
+    public Result create() {
+
+        ApiUser apiUser = Json.fromJson(request().body().asJson(), ApiUser.class);
+
+        FlatUser flatUser = new FlatUser(apiUser.userName, apiUser.password, apiUser.bankAccountNumber, apiUser.phoneNumber,
+                apiUser.email, apiUser.nickname);
 
         userRepository.save(flatUser);
+
+        return ok();
     }
 
-    @Path("/Update/")
-    @POST
-    @Consumes("application/json")
     //@Secured
-    @ApiOperation(value = "Update user", httpMethod = "PUT" ,
-            consumes = "application/json")
-    public void updateUser(ApiUser apiUser) {
-        FlatUser flatUser = userRepository.findById(apiUser.getId());
-        flatUser.bankAccountNumber = apiUser.getBankAccountNumber();
-        flatUser.email = apiUser.getEmail();
-        flatUser.name = apiUser.getName();
-        flatUser.nickname = apiUser.getNickname();
-        flatUser.phoneNumber = apiUser.getPhoneNumber();
+    public Result update() {
+        ApiUser apiUser = Json.fromJson(request().body().asJson(), ApiUser.class);
+
+        FlatUser flatUser = new FlatUser(apiUser.userName, apiUser.password, apiUser.bankAccountNumber, apiUser.phoneNumber,
+                apiUser.email, apiUser.nickname);
+
+        flatUser.id = apiUser.id;
 
         userRepository.save(flatUser);
+
+        return ok();
     }
 
-    @Path("/Delete/{id}")
-    @POST
-    @Consumes("application/json")
     //@Secured
-    @ApiOperation(value = "Delete user", httpMethod = "PUT" ,
-            consumes = "application/json")
-    public void deleteUser(@PathParam("id") long id) {
-        FlatUser flatUser = userRepository.findById(id);
+    public Result delete(long userId) {
+        FlatUser flatUser = userRepository.findById(userId);
         userRepository.delete(flatUser);
-    }*/
+
+        return ok();
+    }
 }
