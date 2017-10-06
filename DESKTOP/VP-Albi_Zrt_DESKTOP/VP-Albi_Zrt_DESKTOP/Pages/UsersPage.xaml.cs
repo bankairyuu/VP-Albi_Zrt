@@ -22,7 +22,25 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     {
         public UsersPage()
         {
+            List<Pages.Views.UsersView> Users = new List<Views.UsersView>();
+
+            Model.User Miki = new Model.User
+            {
+                ID = 1,
+                Name = "Herperger Miklós",
+                Nickname = "Professzor úr",
+                Username = "MikiTheProf",
+                Password = "jelszo",
+                Phone = "+36301234567",
+                Email = "asdf@fdsa.com",
+                CreditCardNumber = "123456789"
+            };
+
+            Users.Add(new Views.UsersView(Miki));
+
             InitializeComponent();
+
+            this.UsersDataGrid.ItemsSource = Users;
         }
     }
 }

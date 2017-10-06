@@ -88,6 +88,10 @@
     <Compile Include="Pages\UsersPage.xaml.cs">
       <DependentUpon>UsersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Views\ExpensesView.cs" />
+    <Compile Include="Pages\Views\MonthlyFeesView.cs" />
+    <Compile Include="Pages\Views\TasksView.cs" />
+    <Compile Include="Pages\Views\UsersView.cs" />
     <Compile Include="Windows\VP_Albi_Zrt_Main.xaml.cs">
       <DependentUpon>VP_Albi_Zrt_Main.xaml</DependentUpon>
     </Compile>
