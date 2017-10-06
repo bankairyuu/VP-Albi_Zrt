@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ExpressionBlendVersion>12.0.50429.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -72,11 +73,23 @@
     <Compile Include="Model\MonthlyFees.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="Pages\Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
+    <Compile Include="Pages\Default.xaml.cs">
+      <DependentUpon>Default.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MainApplicationWindow.xaml.cs">
-      <DependentUpon>MainApplicationWindow.xaml</DependentUpon>
+    <Compile Include="Pages\ExpensesPage.xaml.cs">
+      <DependentUpon>ExpensesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FeesPage.xaml.cs">
+      <DependentUpon>FeesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TasksPage.xaml.cs">
+      <DependentUpon>TasksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UsersPage.xaml.cs">
+      <DependentUpon>UsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\VP_Albi_Zrt_Main.xaml.cs">
+      <DependentUpon>VP_Albi_Zrt_Main.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,11 +104,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\Page1.xaml">
+    <Page Include="Pages\Default.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MainApplicationWindow.xaml">
+    <Page Include="Pages\ExpensesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FeesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TasksPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\VP_Albi_Zrt_Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,13 +155,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="VP-Albi_Zrt.png" />
+    <Resource Include="Windows\expenses.png" />
+    <Resource Include="Windows\fees.gif" />
+    <Resource Include="Windows\tasks.png" />
+    <Resource Include="Windows\users.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

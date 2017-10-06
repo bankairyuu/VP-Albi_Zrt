@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace VP_Albi_Zrt_DESKTOP.Pages
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for Default.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class DefaultPage : Page
     {
-        public Page1()
+        public DefaultPage()
         {
             InitializeComponent();
         }
