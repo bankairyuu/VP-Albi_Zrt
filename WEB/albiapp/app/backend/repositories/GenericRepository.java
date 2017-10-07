@@ -46,7 +46,7 @@ public class GenericRepository<T> {
     }
 
     public void delete(T t) {
-        em().remove(t);
+        em().remove(em().merge(t));
     }
 
     public Integer count() {
