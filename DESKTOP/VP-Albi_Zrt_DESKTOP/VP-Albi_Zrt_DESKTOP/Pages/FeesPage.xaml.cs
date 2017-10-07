@@ -20,9 +20,15 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     /// </summary>
     public partial class FeesPage : Page
     {
+        List<Pages.Views.MonthlyFeesView> MonthlyFees = new List<Views.MonthlyFeesView>();
+
         public FeesPage()
         {
+            foreach (Model.MonthlyFees fee in DemoDatabase.DemoDatabase.MonthlyFees) MonthlyFees.Add(new Views.MonthlyFeesView(fee));
+
             InitializeComponent();
+
+            this.FeesDataGrid.ItemsSource = MonthlyFees;
         }
     }
 }

@@ -20,9 +20,15 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     /// </summary>
     public partial class TasksPage : Page
     {
+        List<Pages.Views.TasksView> Tasks = new List<Views.TasksView>();
+
         public TasksPage()
         {
+            foreach (Model.Task task in DemoDatabase.DemoDatabase.Tasks) Tasks.Add(new Views.TasksView(task));
+
             InitializeComponent();
+
+            this.TasksDataGrid.ItemsSource = Tasks;
         }
     }
 }

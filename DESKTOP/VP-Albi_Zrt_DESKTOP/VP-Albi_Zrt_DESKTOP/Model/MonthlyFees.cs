@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VP_Albi_Zrt_DESKTOP.Model
 {
-    class MonthlyFees
+    public class MonthlyFees
     {
         public enum eFeeType { Water, Gas, Electricity, Internet }
 

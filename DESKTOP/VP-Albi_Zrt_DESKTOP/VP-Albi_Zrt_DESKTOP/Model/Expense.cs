@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VP_Albi_Zrt_DESKTOP.Model
 {
-    class Expense
+    public class Expense
     {
         public enum eSharingType { Personal, Common };
 

@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VP_Albi_Zrt_DESKTOP.Pages
+namespace VP_Albi_Zrt_DESKTOP.Windows
 {
     /// <summary>
-    /// Interaction logic for UsersPage.xaml
+    /// Interaction logic for CUWindow.xaml -- Create and Update window
     /// </summary>
-    public partial class UsersPage : Page
+    public partial class CUWindow : Window
     {
-        public UsersPage()
+        public CUWindow()
         {
-            List<Pages.Views.UsersView> Users = new List<Views.UsersView>();
-
-            foreach (Model.User user in DemoDatabase.DemoDatabase.Users) Users.Add(new Views.UsersView(user));
-
             InitializeComponent();
-
-            this.UsersDataGrid.ItemsSource = Users;
         }
     }
 }

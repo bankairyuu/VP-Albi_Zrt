@@ -13,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VP_Albi_Zrt_DESKTOP.Pages
+namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
 {
     /// <summary>
-    /// Interaction logic for UsersPage.xaml
+    /// Interaction logic for UpdateUserPage.xaml
     /// </summary>
-    public partial class UsersPage : Page
+    public partial class UpdateUserPage : Page
     {
-        public UsersPage()
+        public UpdateUserPage()
         {
-            List<Pages.Views.UsersView> Users = new List<Views.UsersView>();
-
-            foreach (Model.User user in DemoDatabase.DemoDatabase.Users) Users.Add(new Views.UsersView(user));
-
             InitializeComponent();
-
-            this.UsersDataGrid.ItemsSource = Users;
         }
     }
 }

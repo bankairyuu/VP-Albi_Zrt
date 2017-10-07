@@ -69,10 +69,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DemoDatabase\DemoDatabase.cs" />
     <Compile Include="Model\Expense.cs" />
     <Compile Include="Model\MonthlyFees.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Pages\CreatePages\CreateExpensePage.xaml.cs">
+      <DependentUpon>CreateExpensePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreatePages\CreateMonthlyFeePage.xaml.cs">
+      <DependentUpon>CreateMonthlyFeePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreatePages\CreateTaskPage.xaml.cs">
+      <DependentUpon>CreateTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreatePages\CreateUserPage.xaml.cs">
+      <DependentUpon>CreateUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Default.xaml.cs">
       <DependentUpon>Default.xaml</DependentUpon>
     </Compile>
@@ -85,6 +98,18 @@
     <Compile Include="Pages\TasksPage.xaml.cs">
       <DependentUpon>TasksPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UpdatePages\UpdateExpensePage.xaml.cs">
+      <DependentUpon>UpdateExpensePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdatePages\UpdateMonthlyFeePage.xaml.cs">
+      <DependentUpon>UpdateMonthlyFeePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdatePages\UpdateTaskPage.xaml.cs">
+      <DependentUpon>UpdateTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdatePages\UpdateUserPage.xaml.cs">
+      <DependentUpon>UpdateUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\UsersPage.xaml.cs">
       <DependentUpon>UsersPage.xaml</DependentUpon>
     </Compile>
@@ -92,6 +117,9 @@
     <Compile Include="Pages\Views\MonthlyFeesView.cs" />
     <Compile Include="Pages\Views\TasksView.cs" />
     <Compile Include="Pages\Views\UsersView.cs" />
+    <Compile Include="Windows\CUWindow.xaml.cs">
+      <DependentUpon>CUWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\VP_Albi_Zrt_Main.xaml.cs">
       <DependentUpon>VP_Albi_Zrt_Main.xaml</DependentUpon>
     </Compile>
@@ -108,6 +136,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\CreatePages\CreateExpensePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CreatePages\CreateMonthlyFeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CreatePages\CreateTaskPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CreatePages\CreateUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Default.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,7 +168,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\UpdatePages\UpdateExpensePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdatePages\UpdateMonthlyFeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdatePages\UpdateTaskPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdatePages\UpdateUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\UsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CUWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
