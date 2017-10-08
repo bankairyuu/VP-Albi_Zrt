@@ -55,10 +55,10 @@
         
         <ComboBox   Name="From"               Grid.Column="3" Grid.Row="1"></ComboBox>
         <ComboBox   Name="To"                 Grid.Column="3" Grid.Row="3"></ComboBox>
-        <TextBox    Name="Name"               Grid.Column="3" Grid.Row="5"></TextBox>
-        <TextBox    Name="Description"        Grid.Column="3" Grid.Row="7"></TextBox>
+        <TextBox    Name="Name"               Grid.Column="3" Grid.Row="5" VerticalContentAlignment="Center"></TextBox>
+        <TextBox    Name="Description"        Grid.Column="3" Grid.Row="7" TextWrapping="Wrap"></TextBox>
         <ComboBox   Name="SharingType"        Grid.Column="3" Grid.Row="9"></ComboBox>
-        <TextBox    Name="Amount"             Grid.Column="3" Grid.Row="11"></TextBox>
+        <TextBox    Name="Amount"             Grid.Column="3" Grid.Row="11" VerticalContentAlignment="Center"></TextBox>
         <CheckBox   Name="ApartmentCost"      Grid.Column="3" Grid.Row="13" VerticalContentAlignment="Center"></CheckBox>
         <DatePicker Name="ExpenseMonth"       Grid.Column="3" Grid.Row="15" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center"/>
         <CheckBox   Name="Paid"               Grid.Column="3" Grid.Row="17" VerticalContentAlignment="Center"></CheckBox>

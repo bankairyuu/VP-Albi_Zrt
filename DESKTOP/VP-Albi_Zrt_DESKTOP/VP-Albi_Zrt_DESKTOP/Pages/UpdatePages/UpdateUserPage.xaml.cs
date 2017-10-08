@@ -23,6 +23,23 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
         public UpdateUserPage(Pages.Views.UsersView u)
         {
             InitializeComponent();
+            this.Username.Text = u.Username;
+            this.Phone.Text = u.Phone;
+            this.Password.Password = u.Password;
+            this.Email.Text = u.Email;
+            this.Name.Text = u.Name;
+            this.Nickname.Text = u.Nickname;
+            this.CreditCardNumber.Text = u.CreditCardNumber;
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

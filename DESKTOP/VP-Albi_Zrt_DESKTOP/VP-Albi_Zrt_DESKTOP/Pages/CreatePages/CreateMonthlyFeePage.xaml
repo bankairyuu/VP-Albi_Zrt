@@ -34,7 +34,7 @@
         <Label Content="Amount"      Grid.Column="1" Grid.Row="3"></Label>
         
         <ComboBox Name="FeeType"     Grid.Column="3" Grid.Row="1"></ComboBox>
-        <TextBox  Name="Amount"      Grid.Column="3" Grid.Row="3"></TextBox>
+        <TextBox  Name="Amount"      Grid.Column="3" Grid.Row="3" VerticalContentAlignment="Center"></TextBox>
         
         <Button Name="SaveButton"   Content="Save"   Grid.Column="1" Grid.Row="5" Width="120" Click="SaveButton_Click"></Button>
         <Button Name="CancelButton" Content="Cancel" Grid.Column="3" Grid.Row="5" Width="120" HorizontalAlignment="Right" Click="CancelButton_Click"></Button>

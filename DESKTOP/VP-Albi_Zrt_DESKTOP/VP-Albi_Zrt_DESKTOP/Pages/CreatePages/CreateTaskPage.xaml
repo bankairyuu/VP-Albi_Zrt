@@ -40,7 +40,7 @@
         
         <ComboBox   Name="From"                      Grid.Column="3" Grid.Row="1"></ComboBox>
         <ComboBox   Name="To"                        Grid.Column="3" Grid.Row="3"></ComboBox>
-        <TextBox    Name="Description"               Grid.Column="3" Grid.Row="5" AcceptsReturn="True" AcceptsTab="True"></TextBox>
+        <TextBox    Name="Description"               Grid.Column="3" Grid.Row="5" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"></TextBox>
         <DatePicker Name="RequestedCompletitionDate" Grid.Column="3" Grid.Row="7" VerticalContentAlignment="Center"></DatePicker>
         
         <Button Name="SaveButton"   Content="Save"   Grid.Column="1" Grid.Row="9" Width="120" Click="SaveButton_Click"></Button>

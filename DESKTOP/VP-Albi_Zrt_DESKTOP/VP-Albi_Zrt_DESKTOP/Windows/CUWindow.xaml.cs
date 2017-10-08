@@ -72,19 +72,35 @@ namespace VP_Albi_Zrt_DESKTOP.Windows
                 {
                     case ePage.Users:
                         this.Title = "Edit User";
-                        this.Content = new Pages.UpdatePages.UpdateUserPage((Pages.Views.UsersView)o);
+                        Pages.UpdatePages.UpdateUserPage userPage = new Pages.UpdatePages.UpdateUserPage((Pages.Views.UsersView)o);
+                        this.Content = userPage;
+                        this.Height = userPage.Height + 40;
+                        this.Width = userPage.Width + 30;
+                        this.ResizeMode = ResizeMode.NoResize;
                         break;
                     case ePage.Tasks:
                         this.Title = "Edit Task";
-                        this.Content = new Pages.UpdatePages.UpdateTaskPage((Pages.Views.TasksView)o);
+                        Pages.UpdatePages.UpdateTaskPage taskPage = new Pages.UpdatePages.UpdateTaskPage((Pages.Views.TasksView)o);
+                        this.Content = taskPage;
+                        this.Height = taskPage.Height + 30;
+                        this.Width = taskPage.Width + 30;
+                        this.ResizeMode = ResizeMode.NoResize;
                         break;
                     case ePage.Expense:
                         this.Title = "Edit Expense";
-                        this.Content = new Pages.UpdatePages.UpdateExpensePage((Pages.Views.ExpensesView)o);
+                        Pages.UpdatePages.UpdateExpensePage expensePage = new Pages.UpdatePages.UpdateExpensePage((Pages.Views.ExpensesView)o);
+                        this.Content = expensePage;
+                        this.Height = expensePage.Height + 30;
+                        this.Width = expensePage.Width + 30;
+                        this.ResizeMode = ResizeMode.NoResize;
                         break;
                     case ePage.MonthlyFee:
                         this.Title = "Edit Monthly Fee";
-                        this.Content = new Pages.UpdatePages.UpdateMonthlyFeePage((Pages.Views.MonthlyFeesView)o);
+                        Pages.UpdatePages.UpdateMonthlyFeePage monthlyFeePage = new Pages.UpdatePages.UpdateMonthlyFeePage((Pages.Views.MonthlyFeesView)o);
+                        this.Content = monthlyFeePage;
+                        this.Height = monthlyFeePage.Height + 30;
+                        this.Width = monthlyFeePage.Width + 30;
+                        this.ResizeMode = ResizeMode.NoResize;
                         break;
                     default:
                         throw new Exception("Ilyet nem modifikálhatsz, mert ilyen nincs");
