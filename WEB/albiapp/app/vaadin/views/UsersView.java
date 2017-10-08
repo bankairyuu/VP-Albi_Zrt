@@ -42,7 +42,7 @@ public class UsersView extends CustomComponent implements View {
     }
 
     private Button createAddUserButton() {
-        return new Button("Új felhasználó hozzáadása",event -> editUser(new FlatUser()));
+        return new Button("Create user",event -> editUser(new FlatUser()));
     }
 
     private Grid<FlatUser> createGrid() {
@@ -67,7 +67,7 @@ public class UsersView extends CustomComponent implements View {
     }
 
     private void editUser(FlatUser flatUser) {
-        Window window = new Window("Felhasználó szerkesztése");
+        Window window = new Window("Edit user");
 
         UserEditor userEditor = userEditorProvider.get();
 
@@ -83,6 +83,7 @@ public class UsersView extends CustomComponent implements View {
         getUI().addWindow(window);
         window.setModal(true);
         window.focus();
+        window.setWidth("500px");
         window.setModal(true);
         window.setClosable(true);
     }
@@ -126,7 +127,7 @@ public class UsersView extends CustomComponent implements View {
             Arrays.asList(userName, name, email, nickname, phoneNumber, bankAccountNumber)
                     .forEach(formLayout::addComponent);
 
-            formLayout.addComponent(new Button("Mentés", event -> {
+            formLayout.addComponent(new Button("Save", event -> {
                 try {
                     binder.writeBean(flatUser);
                     saveCallback.accept(flatUser);

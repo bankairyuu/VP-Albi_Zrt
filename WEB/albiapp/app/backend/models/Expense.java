@@ -8,9 +8,21 @@ import java.util.Date;
 
 @Entity
 public class Expense {
-    public enum SharingType {
-        PERSONAL,
-        COMMON;
+    public enum SharingType implements NamedEnum {
+        PERSONAL("Personal"),
+        COMMON("Common");
+
+        private final String name;
+
+        SharingType(String name) {
+            this.name = name;
+        }
+
+
+        @Override
+        public String getName() {
+            return name;
+        }
     }
 
     @Id

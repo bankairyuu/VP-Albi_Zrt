@@ -30,7 +30,7 @@ public class ExpenseApi extends Controller {
     @Inject
     private UserRepository userRepository;
 
-    @ApiOperation(value = "Create expense", response = ApiExpense.class, responseContainer = "List")
+    @ApiOperation(value = "List expenses", response = ApiExpense.class, responseContainer = "List")
     public Result list() {
         return ok(Json.toJson(expenseRepository.findAll().stream().map(ApiExpense::new).collect(Collectors.toList())));
     }
