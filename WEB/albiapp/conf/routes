@@ -32,3 +32,9 @@ POST    /vaadin*args             controllers.vaadin.VaadinController.vaadinUI(ar
 GET     /vaadin             controllers.vaadin.VaadinController.vaadinUI(args= null)
 
 GET     /VAADIN/*file       controllers.vaadin.VaadinController.assets( file)
+
+
+GET     /swagger.json           @controllers.ApiHelpController.getResources
+
+GET     /api-docs           controllers.apidocs.Application.index
+

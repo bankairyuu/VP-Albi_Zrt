@@ -38,12 +38,11 @@ libraryDependencies += "com.vaadin" % "vaadin-client-compiled" % "8.1.5"
 // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
 libraryDependencies += "javax.servlet" % "javax.servlet-api" % "3.1.0"
 
+// https://mvnrepository.com/artifact/io.swagger/swagger-play2_2.12
+libraryDependencies += "io.swagger" % "swagger-play2_2.12" % "1.6.0"
 
-
-
-// Testing libraries for dealing with CompletionStage...
-libraryDependencies += "org.assertj" % "assertj-core" % "3.6.2" % Test
-libraryDependencies += "org.awaitility" % "awaitility" % "2.0.0" % Test
 
 // Make verbose tests
 testOptions in Test := Seq(Tests.Argument(TestFrameworks.JUnit, "-a", "-v"))
+
+routesGenerator := InjectedRoutesGenerator

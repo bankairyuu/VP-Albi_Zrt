@@ -29,7 +29,7 @@ public class TaskApi extends Controller {
 
         ApiTask apiTask = Json.fromJson(request().body().asJson(), ApiTask.class);
 
-        Task task = new Task(userRepository.findById(apiTask.From.id), userRepository.findById(apiTask.To.id),
+        Task task = new Task(userRepository.findById(apiTask.From.ID), userRepository.findById(apiTask.To.ID),
                 apiTask.Description, Task.TaskStatus.valueOf(apiTask.TaskStatus), apiTask.PlannedCompletionDate, apiTask.AcceptanceMessage);
 
         taskRepository.save(task);
@@ -41,7 +41,7 @@ public class TaskApi extends Controller {
     public Result update() {
         ApiTask apiTask = Json.fromJson(request().body().asJson(), ApiTask.class);
 
-        Task task = new Task( userRepository.findById(apiTask.From.id), userRepository.findById(apiTask.To.id),
+        Task task = new Task( userRepository.findById(apiTask.From.ID), userRepository.findById(apiTask.To.ID),
                 apiTask.Description, Task.TaskStatus.valueOf(apiTask.TaskStatus), apiTask.PlannedCompletionDate, apiTask.AcceptanceMessage);
 
         task.id = apiTask.ID;

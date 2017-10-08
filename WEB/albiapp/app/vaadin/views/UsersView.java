@@ -61,7 +61,7 @@ public class UsersView extends CustomComponent implements View {
                     userGrid.getDataProvider().refreshAll();
                 })).setId("delete");
 
-        userGrid.setColumns("userName", "nickname","edit", "delete");
+        userGrid.setColumns("userName", "name", "nickname","edit", "delete");
 
         return userGrid;
     }
@@ -92,6 +92,7 @@ public class UsersView extends CustomComponent implements View {
 
 
         TextField userName = new TextField("User name");
+        TextField name = new TextField("Name");
         TextField bankAccountNumber= new TextField("Bank account number");
         TextField phoneNumber= new TextField("Phone number");
         TextField email= new TextField("E-mail");
@@ -105,6 +106,7 @@ public class UsersView extends CustomComponent implements View {
             binder = new Binder<>(FlatUser.class);
 
             binder.bind(userName, "userName");
+            binder.bind(name, "name");
             binder.bind(bankAccountNumber, "bankAccountNumber");
             binder.bind(phoneNumber, "phoneNumber");
             binder.bind(email, "email");
@@ -121,7 +123,7 @@ public class UsersView extends CustomComponent implements View {
         private void initLayout() {
             FormLayout formLayout = new FormLayout();
 
-            Arrays.asList(userName, email, nickname, phoneNumber, bankAccountNumber)
+            Arrays.asList(userName, name, email, nickname, phoneNumber, bankAccountNumber)
                     .forEach(formLayout::addComponent);
 
             formLayout.addComponent(new Button("Mentés", event -> {

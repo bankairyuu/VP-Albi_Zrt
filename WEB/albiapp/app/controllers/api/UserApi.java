@@ -33,8 +33,8 @@ public class UserApi extends Controller {
 
         ApiUser apiUser = Json.fromJson(request().body().asJson(), ApiUser.class);
 
-        FlatUser flatUser = new FlatUser(apiUser.userName, apiUser.password, apiUser.bankAccountNumber, apiUser.phoneNumber,
-                apiUser.email, apiUser.nickname);
+        FlatUser flatUser = new FlatUser(apiUser.UserName, apiUser.Name, apiUser.Password, apiUser.BankAccountNumber, apiUser.PhoneNumber,
+                apiUser.Email, apiUser.Nickname);
 
         userRepository.save(flatUser);
 
@@ -45,10 +45,10 @@ public class UserApi extends Controller {
     public Result update() {
         ApiUser apiUser = Json.fromJson(request().body().asJson(), ApiUser.class);
 
-        FlatUser flatUser = new FlatUser(apiUser.userName, apiUser.password, apiUser.bankAccountNumber, apiUser.phoneNumber,
-                apiUser.email, apiUser.nickname);
+        FlatUser flatUser = new FlatUser(apiUser.UserName, apiUser.Name, apiUser.Password, apiUser.BankAccountNumber, apiUser.PhoneNumber,
+                apiUser.Email, apiUser.Nickname);
 
-        flatUser.id = apiUser.id;
+        flatUser.id = apiUser.ID;
 
         userRepository.save(flatUser);
 

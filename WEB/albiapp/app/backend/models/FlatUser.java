@@ -10,6 +10,7 @@ public class FlatUser {
     @GeneratedValue
     public Long id;
 
+    public String name;
     public String userName;
     public String bankAccountNumber;
     public String phoneNumber;
@@ -17,8 +18,9 @@ public class FlatUser {
     public String nickname;
     public String password;
 
-    public FlatUser(String userName, String password, String bankAccountNumber, String phoneNumber, String email, String nickname) {
+    public FlatUser(String userName, String name, String password, String bankAccountNumber, String phoneNumber, String email, String nickname) {
         this.userName = userName;
+        this.name = name;
         this.password = password;
         this.bankAccountNumber = bankAccountNumber;
         this.phoneNumber = phoneNumber;
