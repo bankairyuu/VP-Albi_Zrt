@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VP_Albi_Zrt_DESKTOP.Pages.Views
 {
-    class ExpensesView
+    public class ExpensesView
     {
         Model.Expense ReferenceExpense;
 

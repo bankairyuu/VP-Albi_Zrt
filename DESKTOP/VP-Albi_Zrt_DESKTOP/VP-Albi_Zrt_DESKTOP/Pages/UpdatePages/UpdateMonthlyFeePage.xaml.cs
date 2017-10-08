@@ -20,7 +20,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
     /// </summary>
     public partial class UpdateMonthlyFeePage : Page
     {
-        public UpdateMonthlyFeePage()
+        public UpdateMonthlyFeePage(Pages.Views.MonthlyFeesView mf)
         {
             InitializeComponent();
         }

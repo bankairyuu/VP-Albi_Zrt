@@ -171,8 +171,70 @@ namespace VP_Albi_Zrt_DESKTOP.DemoDatabase
                 Description = "Légyszi mosogasd el a tányérokat!",
                 RequestedCompletionDate = DateTime.Now.AddDays(3),
             };
+            Model.Task Fürdőtakarítás = new Model.Task
+            {
+                ID = 2,
+                From = Andi,
+                TaskStatus = Model.Task.eStatus.Open,
+                To = Roli,
+                CreationDate = DateTime.Now.AddDays(-3),
+                AcceptanceProperty = Model.Task.eAcceptanceProperty.Waiting_for_reply,
+                AcceptanceMessage = "",
+                Description = "Haj van a fürdőkádban",
+                RequestedCompletionDate = DateTime.Now.AddDays(5),
+            };
+            Model.Task Menedzsmentprogi = new Model.Task
+            {
+                ID = 3,
+                From = Krisz,
+                TaskStatus = Model.Task.eStatus.Open,
+                To = Miki,
+                CreationDate = DateTime.Now,
+                AcceptanceProperty = Model.Task.eAcceptanceProperty.Waiting_for_reply,
+                AcceptanceMessage = "",
+                Description = "Észrevettem egy hibát, ki kell javítani, majd dumáljuk meg, hogy mi lenne a legjobb megoldás",
+                RequestedCompletionDate = DateTime.Now.AddDays(5),
+            };
 
             Tasks.Add(Konyhatakarítás);
+            Tasks.Add(Fürdőtakarítás);
+            Tasks.Add(Menedzsmentprogi);
+            #endregion
+
+            #region MonthlyFees
+
+            Model.MonthlyFees Víz = new Model.MonthlyFees
+            {
+                ID = 1,
+                FeeType = Model.MonthlyFees.eFeeType.Water,
+                Amount = 9570,
+                CreationDate = DateTime.Now
+            };
+            Model.MonthlyFees Gáz = new Model.MonthlyFees
+            {
+                ID = 2,
+                FeeType = Model.MonthlyFees.eFeeType.Gas,
+                Amount = 10000,
+                CreationDate = DateTime.Now
+            };
+            Model.MonthlyFees Net = new Model.MonthlyFees
+            {
+                ID = 3,
+                FeeType = Model.MonthlyFees.eFeeType.Internet,
+                Amount = 4600,
+                CreationDate = DateTime.Now
+            };
+            Model.MonthlyFees Villany = new Model.MonthlyFees
+            {
+                ID = 4,
+                FeeType = Model.MonthlyFees.eFeeType.Electricity,
+                Amount = 12000,
+                CreationDate = DateTime.Now
+            };
+            MonthlyFees.Add(Víz);
+            MonthlyFees.Add(Gáz);
+            MonthlyFees.Add(Net);
+            MonthlyFees.Add(Villany);
             #endregion
         }
     }

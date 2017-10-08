@@ -20,7 +20,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
     /// </summary>
     public partial class UpdateExpensePage : Page
     {
-        public UpdateExpensePage()
+        public UpdateExpensePage(Pages.Views.ExpensesView e)
         {
             InitializeComponent();
         }

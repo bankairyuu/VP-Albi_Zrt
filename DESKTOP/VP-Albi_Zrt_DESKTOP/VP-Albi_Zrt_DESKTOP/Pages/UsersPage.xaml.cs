@@ -30,5 +30,21 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
 
             this.UsersDataGrid.ItemsSource = Users;
         }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            new Windows.CUWindow(Windows.CUWindow.ePage.Users, Windows.CUWindow.eMode.Create).Show();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.Views.UsersView user = (Pages.Views.UsersView)UsersDataGrid.SelectedItem;
+            new Windows.CUWindow(Windows.CUWindow.ePage.Users, Windows.CUWindow.eMode.Update, user).Show();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.Views.UsersView user = (Pages.Views.UsersView)UsersDataGrid.SelectedItem;
+        }
     }
 }

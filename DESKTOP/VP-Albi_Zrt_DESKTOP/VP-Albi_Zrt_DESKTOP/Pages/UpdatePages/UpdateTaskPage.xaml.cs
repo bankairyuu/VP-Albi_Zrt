@@ -20,7 +20,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
     /// </summary>
     public partial class UpdateTaskPage : Page
     {
-        public UpdateTaskPage()
+        public UpdateTaskPage(Pages.Views.TasksView t)
         {
             InitializeComponent();
         }

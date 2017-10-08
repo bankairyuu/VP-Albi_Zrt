@@ -23,6 +23,17 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.CreatePages
         public CreateMonthlyFeePage()
         {
             InitializeComponent();
+            FeeType.ItemsSource = Enum.GetValues(typeof(Model.MonthlyFees.eFeeType)).Cast<Model.MonthlyFees.eFeeType>();
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

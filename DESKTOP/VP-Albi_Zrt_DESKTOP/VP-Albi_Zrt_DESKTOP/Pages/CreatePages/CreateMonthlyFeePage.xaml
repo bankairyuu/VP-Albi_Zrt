@@ -6,9 +6,37 @@
       xmlns:local="clr-namespace:VP_Albi_Zrt_DESKTOP.Pages.CreatePages"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
+      Height="140" Width="300"
+      
       Title="CreateMonthlyFeePage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!---->
         
+        <Label Content="Fee type"    Grid.Column="1" Grid.Row="1"></Label>
+        <Label Content="Amount"      Grid.Column="1" Grid.Row="3"></Label>
+        
+        <ComboBox Name="FeeType"     Grid.Column="3" Grid.Row="1"></ComboBox>
+        <TextBox  Name="Amount"      Grid.Column="3" Grid.Row="3"></TextBox>
+        
+        <Button Name="SaveButton"   Content="Save"   Grid.Column="1" Grid.Row="5" Width="120" Click="SaveButton_Click"></Button>
+        <Button Name="CancelButton" Content="Cancel" Grid.Column="3" Grid.Row="5" Width="120" HorizontalAlignment="Right" Click="CancelButton_Click"></Button>
     </Grid>
 </Page>

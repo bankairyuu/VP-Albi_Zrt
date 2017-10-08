@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VP_Albi_Zrt_DESKTOP.Pages.Views
 {
-    class UsersView
+    public class UsersView
     {
         Model.User ReferenceUser;
 

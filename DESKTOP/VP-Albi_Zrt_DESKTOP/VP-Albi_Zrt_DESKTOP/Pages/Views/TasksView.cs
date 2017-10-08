@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VP_Albi_Zrt_DESKTOP.Pages.Views
 {
-    class TasksView
+    public class TasksView
     {
         Model.Task ReferenceTask;
 

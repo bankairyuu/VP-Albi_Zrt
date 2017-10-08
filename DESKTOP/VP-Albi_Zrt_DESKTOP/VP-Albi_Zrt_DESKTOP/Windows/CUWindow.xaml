@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VP_Albi_Zrt_DESKTOP.Windows"
         mc:Ignorable="d"
-        Title="CUWindow" Height="300" Width="300">
-    <Grid>
+        Title="CUWindow" Height="300" Width="300" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen">
+    <Grid Name="CUGrid">
         
     </Grid>
 </Window>

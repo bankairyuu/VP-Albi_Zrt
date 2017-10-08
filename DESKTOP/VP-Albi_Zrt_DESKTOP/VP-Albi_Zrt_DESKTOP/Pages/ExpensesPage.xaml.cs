@@ -30,5 +30,21 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
 
             this.ExpensesDataGrid.ItemsSource = DemoExpenses;
         }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            new Windows.CUWindow(Windows.CUWindow.ePage.Expense, Windows.CUWindow.eMode.Create).Show();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.Views.ExpensesView expense = (Pages.Views.ExpensesView)ExpensesDataGrid.SelectedItem;
+            new Windows.CUWindow(Windows.CUWindow.ePage.Expense, Windows.CUWindow.eMode.Update, expense).Show();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.Views.ExpensesView expense = (Pages.Views.ExpensesView)ExpensesDataGrid.SelectedItem;
+        }
     }
 }

@@ -23,6 +23,20 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.CreatePages
         public CreateTaskPage()
         {
             InitializeComponent();
+            List<string> Users = new List<string>();
+            foreach (Model.User u in DemoDatabase.DemoDatabase.Users) Users.Add(u.Name);
+            From.ItemsSource = Users;
+            To.ItemsSource = Users;
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

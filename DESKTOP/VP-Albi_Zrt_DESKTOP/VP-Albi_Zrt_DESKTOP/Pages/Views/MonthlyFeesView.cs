@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VP_Albi_Zrt_DESKTOP.Pages.Views
 {
-    class MonthlyFeesView
+    public class MonthlyFeesView
     {
         Model.MonthlyFees ReferenceMonthlyFees;
 

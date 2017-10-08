@@ -20,7 +20,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
     /// </summary>
     public partial class UpdateUserPage : Page
     {
-        public UpdateUserPage()
+        public UpdateUserPage(Pages.Views.UsersView u)
         {
             InitializeComponent();
         }
