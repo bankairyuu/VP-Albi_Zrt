@@ -242,7 +242,8 @@ namespace VP_Albi_Zrt_DESKTOP.DemoDatabase
         {
             foreach (Model.User user in Users)
             {
-                if (u.ID < user.ID) u.ID++;
+                if (u.ID < user.ID) u.ID=user.ID;
+                if (u.ID == user.ID) u.ID++;
             }
             Users.Add(u);
             return true;
