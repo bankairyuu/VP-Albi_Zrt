@@ -33,7 +33,8 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-            new Windows.CUWindow(Windows.CUWindow.ePage.Users, Windows.CUWindow.eMode.Create).Show();
+            Windows.CUWindow cuw = new Windows.CUWindow(Windows.CUWindow.ePage.Users, Windows.CUWindow.eMode.Create);
+            cuw.Show();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)

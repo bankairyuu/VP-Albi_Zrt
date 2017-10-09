@@ -237,5 +237,27 @@ namespace VP_Albi_Zrt_DESKTOP.DemoDatabase
             MonthlyFees.Add(Villany);
             #endregion
         }
+
+        public static bool AddUser(Model.User u)
+        {
+            foreach (Model.User user in Users)
+            {
+                if (u.ID < user.ID) u.ID++;
+            }
+            Users.Add(u);
+            return true;
+        }
+
+        public static bool ExistingUser(string username)
+        {
+            foreach (Model.User u in Users)
+            {
+                if (u.Username == username)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

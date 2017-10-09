@@ -70,6 +70,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DemoDatabase\DemoDatabase.cs" />
+    <Compile Include="Logic\PatternCheck\PatternCheck.cs" />
     <Compile Include="Model\Expense.cs" />
     <Compile Include="Model\MonthlyFees.cs" />
     <Compile Include="Model\Task.cs" />

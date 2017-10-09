@@ -28,25 +28,25 @@ namespace VP_Albi_Zrt_DESKTOP.Windows
             ActivePage.Content = new DefaultPage();
         }
 
-        private void UsersButton_Click(object sender, RoutedEventArgs e)
+        public void UsersButton_Click(object sender, RoutedEventArgs e)
         {
             ActivePage.Content = new UsersPage();
             this.Title = "VP-Albi Zrt. :: User datas :: ";
         }
 
-        private void TasksButton_Click(object sender, RoutedEventArgs e)
+        public void TasksButton_Click(object sender, RoutedEventArgs e)
         {
             ActivePage.Content = new TasksPage();
             this.Title = "VP-Albi Zrt. :: Task datas :: ";
         }
 
-        private void ExpansesButton_Click(object sender, RoutedEventArgs e)
+        public void ExpansesButton_Click(object sender, RoutedEventArgs e)
         {
             ActivePage.Content = new ExpensesPage();
             this.Title = "VP-Albi Zrt. :: Expense datas :: ";
         }
 
-        private void FeesButton_Click(object sender, RoutedEventArgs e)
+        public void FeesButton_Click(object sender, RoutedEventArgs e)
         {
             ActivePage.Content = new FeesPage();
             this.Title = "VP-Albi Zrt. :: Fee datas :: ";
