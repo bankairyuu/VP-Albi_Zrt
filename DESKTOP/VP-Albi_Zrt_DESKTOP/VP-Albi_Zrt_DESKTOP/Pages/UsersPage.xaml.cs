@@ -24,7 +24,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
         {
             List<Pages.Views.UsersView> Users = new List<Views.UsersView>();
 
-            foreach (Model.User user in DemoDatabase.DemoDatabase.Users) Users.Add(new Views.UsersView(user));
+            foreach (Model.User user in DatabaseConnector.DatabaseConnector.Users) Users.Add(new Views.UsersView(user));
 
             InitializeComponent();
 

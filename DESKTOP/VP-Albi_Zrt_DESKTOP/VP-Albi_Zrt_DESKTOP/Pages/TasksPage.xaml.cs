@@ -24,7 +24,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
 
         public TasksPage()
         {
-            foreach (Model.Task task in DemoDatabase.DemoDatabase.Tasks) Tasks.Add(new Views.TasksView(task));
+            foreach (Model.Task task in DatabaseConnector.DatabaseConnector.Tasks) Tasks.Add(new Views.TasksView(task));
 
             InitializeComponent();
 

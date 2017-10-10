@@ -24,7 +24,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.CreatePages
         {
             InitializeComponent();
             List<string> Users = new List<string>();
-            foreach (Model.User u in DemoDatabase.DemoDatabase.Users) Users.Add(u.Name);
+            foreach (Model.User u in DatabaseConnector.DatabaseConnector.Users) Users.Add(u.Name);
             From.ItemsSource = Users;
             To.ItemsSource = Users;
         }

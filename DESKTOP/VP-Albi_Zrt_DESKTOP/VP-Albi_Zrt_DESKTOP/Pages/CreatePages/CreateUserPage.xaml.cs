@@ -60,8 +60,8 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.CreatePages
                     Phone = Phone.Text
                 };
 
-                if (    !DemoDatabase.DemoDatabase.ExistingUser(newUser.Username)
-                    &&  DemoDatabase.DemoDatabase.AddUser(newUser)
+                if (    !DatabaseConnector.DatabaseConnector.ExistingUser(newUser.Username)
+                    &&  DatabaseConnector.DatabaseConnector.AddUser(newUser)
                    )
                 {
                     MessageBox.Show("User Created");

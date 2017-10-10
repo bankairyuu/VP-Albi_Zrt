@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VP_Albi_Zrt_DESKTOP.DemoDatabase
+namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
 {
-    public static class DemoDatabase
+    public static class DatabaseConnector
     {
         public static List<Model.User>          Users       = new List<Model.User>();
         public static List<Model.Expense>       Expenses    = new List<Model.Expense>();
         public static List<Model.Task>          Tasks       = new List<Model.Task>();
         public static List<Model.MonthlyFees>   MonthlyFees = new List<Model.MonthlyFees>();
 
-        static DemoDatabase()
+        static DatabaseConnector()
         {
             #region Users
             Model.User Miki = new Model.User
@@ -247,6 +247,25 @@ namespace VP_Albi_Zrt_DESKTOP.DemoDatabase
             }
             Users.Add(u);
             return true;
+        }
+
+        public static void UpdateUser(Model.User u)
+        {
+            
+        }
+
+        public static void DeleteUser(Model.User u)
+        {
+
+        }
+
+        public static Model.User SearchUser(string username, string id = null)
+        {
+            foreach(Model.User u in Users)
+            {
+                if (u.Username == username) return u;
+            }
+            return null;
         }
 
         public static bool ExistingUser(string username)

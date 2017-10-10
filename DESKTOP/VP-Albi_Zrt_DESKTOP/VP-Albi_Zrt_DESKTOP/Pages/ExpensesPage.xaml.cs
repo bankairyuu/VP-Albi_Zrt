@@ -24,7 +24,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
 
         public ExpensesPage()
         {
-            foreach (Model.Expense expense in DemoDatabase.DemoDatabase.Expenses) DemoExpenses.Add(new Views.ExpensesView(expense));
+            foreach (Model.Expense expense in DatabaseConnector.DatabaseConnector.Expenses) DemoExpenses.Add(new Views.ExpensesView(expense));
 
             InitializeComponent();
 

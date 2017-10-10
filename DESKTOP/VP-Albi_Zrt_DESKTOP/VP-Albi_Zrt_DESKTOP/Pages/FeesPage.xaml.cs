@@ -24,7 +24,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
 
         public FeesPage()
         {
-            foreach (Model.MonthlyFees fee in DemoDatabase.DemoDatabase.MonthlyFees) MonthlyFees.Add(new Views.MonthlyFeesView(fee));
+            foreach (Model.MonthlyFees fee in DatabaseConnector.DatabaseConnector.MonthlyFees) MonthlyFees.Add(new Views.MonthlyFeesView(fee));
 
             InitializeComponent();
 
