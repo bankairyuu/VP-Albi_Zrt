@@ -238,6 +238,8 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
             #endregion
         }
 
+        #region User handling operations
+
         public static bool AddUser(Model.User u)
         {
             foreach (Model.User user in Users)
@@ -249,14 +251,28 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
             return true;
         }
 
-        public static void UpdateUser(Model.User u)
+        public static bool UpdateUser(string username, string phone, string password, string email, string name, string nickname, string creditcardnumber)
         {
+            Model.User user = SearchUser(username);
+
+            if (user != null)
+            {
+                user.Phone = phone;
+                user.Password = password;
+                user.Email = email;
+                user.Name = name;
+                user.Nickname = nickname;
+                user.CreditCardNumber = creditcardnumber;
+                return true;
+            }
             
+            return false;
         }
 
-        public static void DeleteUser(Model.User u)
+        public static void DeleteUser(Pages.Views.UsersView u)
         {
-
+            Model.User user = SearchUser(u.Username);
+            Users.Remove(user);
         }
 
         public static Model.User SearchUser(string username, string id = null)
@@ -279,5 +295,7 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
             }
             return false;
         }
+
+        #endregion
     }
 }

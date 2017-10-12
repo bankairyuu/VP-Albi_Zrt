@@ -55,33 +55,36 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
                 &&  Logic.PatternCheck.PatternCheck.CheckToPattern(Logic.PatternCheck.PatternCheck.ePatterns.CreditCardNumber, CreditCardNumber.Text)
                )
             {
-                Model.User user = DatabaseConnector.DatabaseConnector.SearchUser(Username.Text);
-
-                user.Phone = Phone.Text;
-                user.Password = Password.Password;
-                user.Email = Email.Text;
-                user.Name = Name.Text;
-                user.Nickname = Nickname.Text;
-                user.CreditCardNumber = CreditCardNumber.Text;
-
-                DatabaseConnector.DatabaseConnector.UpdateUser(user);
-                
-                MessageBox.Show("User Updated");
-                Windows.CUWindow cuw = Application.Current.MainWindow as Windows.CUWindow;
-                if (cuw != null)
+                if (DatabaseConnector.DatabaseConnector.UpdateUser(
+                    Username.Text, Phone.Text, Password.Password, Email.Text, Name.Text, Nickname.Text, CreditCardNumber.Text
+                ))
                 {
-                    cuw.Close();
+                    MessageBox.Show("User Updated");
+                    Windows.CUWindow cuw = Application.Current.MainWindow as Windows.CUWindow;
+                    if (cuw != null)
+                    {
+                        cuw.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("User not updated because of an error, possible network error");
                 }
             }
             else
             {
-                MessageBox.Show("Update went fail");
+                MessageBox.Show("These modifications can not be done\nPlease check if all of the columns are filled" + 
+                    " and the datas are passing to the fill-out patterns");
             }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Windows.CUWindow cuw = Application.Current.MainWindow as Windows.CUWindow;
+            if (cuw != null)
+            {
+                cuw.Close();
+            }
         }
     }
 }

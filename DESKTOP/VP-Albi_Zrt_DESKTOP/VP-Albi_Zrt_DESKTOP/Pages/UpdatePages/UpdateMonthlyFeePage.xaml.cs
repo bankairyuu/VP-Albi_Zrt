@@ -32,7 +32,11 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Windows.CUWindow cuw = Application.Current.MainWindow as Windows.CUWindow;
+            if (cuw != null)
+            {
+                cuw.Close();
+            }
         }
     }
 }
