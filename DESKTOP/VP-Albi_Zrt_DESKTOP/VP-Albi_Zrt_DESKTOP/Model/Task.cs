@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace VP_Albi_Zrt_DESKTOP.Model
 {
-    class Task
+    public class Task
     {
-        public enum eStatus { Open, Under_construction, In_work, Done };
-        public enum eAcceptanceProperty { Accepted, Accepted_with_conditions, Denied };
+        public enum eStatus { Open, Acceptence, In_work, Done };
+        public enum eAcceptanceProperty { Accepted, Accepted_with_conditions, Denied, Waiting_for_reply };
 
         public int ID { get; set; }
         public DateTime CreationDate { get; set; }

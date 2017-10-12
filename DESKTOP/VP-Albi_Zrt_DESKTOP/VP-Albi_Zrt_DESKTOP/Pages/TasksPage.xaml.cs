@@ -20,9 +20,31 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     /// </summary>
     public partial class TasksPage : Page
     {
+        List<Pages.Views.TasksView> Tasks = new List<Views.TasksView>();
+
         public TasksPage()
         {
+            foreach (Model.Task task in DatabaseConnector.DatabaseConnector.Tasks) Tasks.Add(new Views.TasksView(task));
+
             InitializeComponent();
+
+            this.TasksDataGrid.ItemsSource = Tasks;
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            new Windows.CUWindow(Windows.CUWindow.ePage.Tasks, Windows.CUWindow.eMode.Create).Show();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.Views.TasksView task = (Pages.Views.TasksView)TasksDataGrid.SelectedItem;
+            new Windows.CUWindow(Windows.CUWindow.ePage.Tasks, Windows.CUWindow.eMode.Update, task).Show();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.Views.TasksView task = (Pages.Views.TasksView)TasksDataGrid.SelectedItem;
         }
     }
 }

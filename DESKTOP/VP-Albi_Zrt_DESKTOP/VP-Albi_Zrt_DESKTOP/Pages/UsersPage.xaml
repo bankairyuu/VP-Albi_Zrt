@@ -25,10 +25,10 @@
         
         <!---->
         
-        <DataGrid Name="UsersDataGrid" Grid.ColumnSpan="7"/>
+        <DataGrid Name="UsersDataGrid" Grid.ColumnSpan="7" IsReadOnly="True"/>
         
-        <Button Name="Create"   Content="Create"    Grid.Column="1" Grid.Row="2"></Button>
-        <Button Name="Edit"     Content="Edit"      Grid.Column="3" Grid.Row="2"></Button>
-        <Button Name="Delete"   Content="Delete"    Grid.Column="5" Grid.Row="2"></Button>
+        <Button Name="Create"   Content="Create"    Grid.Column="1" Grid.Row="2" Click="Create_Click"></Button>
+        <Button Name="Edit"     Content="Edit"      Grid.Column="3" Grid.Row="2" Click="Edit_Click"></Button>
+        <Button Name="Delete"   Content="Delete"    Grid.Column="5" Grid.Row="2" Click="Delete_Click"></Button>
     </Grid>
 </Page>

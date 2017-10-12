@@ -20,9 +20,43 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     /// </summary>
     public partial class UsersPage : Page
     {
+        Windows.CUWindow cuw;
+
         public UsersPage()
         {
+            List<Views.UsersView> Users = new List<Views.UsersView>();
+
+            foreach (Model.User user in DatabaseConnector.DatabaseConnector.Users) Users.Add(new Views.UsersView(user));
+
             InitializeComponent();
+
+            this.UsersDataGrid.ItemsSource = Users;
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            cuw = new Windows.CUWindow(Windows.CUWindow.ePage.Users, Windows.CUWindow.eMode.Create);
+            cuw.Show();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Views.UsersView user = (Pages.Views.UsersView)UsersDataGrid.SelectedItem;
+            if (user != null)
+            {
+                cuw = new Windows.CUWindow(Windows.CUWindow.ePage.Users, Windows.CUWindow.eMode.Update, user);
+                cuw.Show();
+            }
+            else
+            {
+                MessageBox.Show("Select an item!");
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            Views.UsersView user = (Pages.Views.UsersView)UsersDataGrid.SelectedItem;
+            DatabaseConnector.DatabaseConnector.DeleteUser(user);
         }
     }
 }
