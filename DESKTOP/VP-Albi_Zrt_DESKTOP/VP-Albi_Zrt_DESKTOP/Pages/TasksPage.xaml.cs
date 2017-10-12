@@ -20,7 +20,8 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     /// </summary>
     public partial class TasksPage : Page
     {
-        List<Pages.Views.TasksView> Tasks = new List<Views.TasksView>();
+        Windows.CUWindow cuw;
+        List<Views.TasksView> Tasks = new List<Views.TasksView>();
 
         public TasksPage()
         {
@@ -38,13 +39,21 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            Pages.Views.TasksView task = (Pages.Views.TasksView)TasksDataGrid.SelectedItem;
-            new Windows.CUWindow(Windows.CUWindow.ePage.Tasks, Windows.CUWindow.eMode.Update, task).Show();
+            Views.TasksView task = (Views.TasksView)TasksDataGrid.SelectedItem;
+            if (task != null)
+            {
+                new Windows.CUWindow(Windows.CUWindow.ePage.Tasks, Windows.CUWindow.eMode.Update, task).Show();
+            }
+            else
+            {
+                MessageBox.Show("Select an item!");
+            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            Pages.Views.TasksView task = (Pages.Views.TasksView)TasksDataGrid.SelectedItem;
+            Views.TasksView task = (Views.TasksView)TasksDataGrid.SelectedItem;
+            DatabaseConnector.DatabaseConnector.DeleteTask(task);
         }
     }
 }

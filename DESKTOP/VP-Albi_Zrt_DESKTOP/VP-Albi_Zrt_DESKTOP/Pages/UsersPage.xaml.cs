@@ -21,11 +21,10 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     public partial class UsersPage : Page
     {
         Windows.CUWindow cuw;
+        List<Views.UsersView> Users = new List<Views.UsersView>();
 
         public UsersPage()
         {
-            List<Views.UsersView> Users = new List<Views.UsersView>();
-
             foreach (Model.User user in DatabaseConnector.DatabaseConnector.Users) Users.Add(new Views.UsersView(user));
 
             InitializeComponent();
@@ -41,7 +40,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            Views.UsersView user = (Pages.Views.UsersView)UsersDataGrid.SelectedItem;
+            Views.UsersView user = (Views.UsersView)UsersDataGrid.SelectedItem;
             if (user != null)
             {
                 cuw = new Windows.CUWindow(Windows.CUWindow.ePage.Users, Windows.CUWindow.eMode.Update, user);

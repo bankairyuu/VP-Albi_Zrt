@@ -275,7 +275,7 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
             Users.Remove(user);
         }
 
-        public static Model.User SearchUser(string username, string id = null)
+        public static Model.User SearchUser(string username)
         {
             foreach(Model.User u in Users)
             {
@@ -295,6 +295,53 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
             }
             return false;
         }
+
+        #endregion
+
+        #region Expense handling
+
+        #endregion
+
+        #region Task Handling
+
+        public static bool UpdateTask()
+        {
+            /*
+            Model.User user = SearchUser(username);
+
+            if (user != null)
+            {
+                user.Phone = phone;
+                user.Password = password;
+                user.Email = email;
+                user.Name = name;
+                user.Nickname = nickname;
+                user.CreditCardNumber = creditcardnumber;
+                return true;
+            }
+            */
+
+            return false;
+        }
+
+        public static Model.Task SearchTask(int id)
+        {
+            foreach (Model.Task t in Tasks)
+            {
+                if (t.ID != id) return t;
+            }
+            return null;
+        }
+
+        public static void DeleteTask(Pages.Views.TasksView t)
+        {
+            Model.Task task = SearchTask(t.ID);
+            Tasks.Remove(task);
+        }
+
+        #endregion
+
+        #region Monthly Fees Handling
 
         #endregion
     }
