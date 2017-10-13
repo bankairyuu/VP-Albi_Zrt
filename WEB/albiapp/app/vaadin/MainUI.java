@@ -10,12 +10,14 @@ import com.vaadin.ui.VerticalLayout;
 import play.Play;
 import play.inject.Injector;
 import vaadin.views.ExpensesView;
+import vaadin.views.MonthlyFeesView;
 import vaadin.views.UsersView;
 
 public class MainUI extends UI {
 
     public static final String USERSVIEW = "users";
     public static final String EXPENSESVIEW = "expenses";
+    public static final String MONTHLYFEESVIEW = "monthlyFees";
 
     public Navigator navigator;
 
@@ -30,6 +32,7 @@ public class MainUI extends UI {
 
         menu.addItem("Users", (menuItem) -> navigator.navigateTo(USERSVIEW));
         menu.addItem("Expenses", (menuItem) -> navigator.navigateTo(EXPENSESVIEW));
+        menu.addItem("Monthly fees", (menuItem) -> navigator.navigateTo(MONTHLYFEESVIEW));
 
         VerticalLayout contentLayout = new VerticalLayout();
         contentLayout.setSizeFull();
@@ -51,6 +54,8 @@ public class MainUI extends UI {
                     return injector.instanceOf(UsersView.class);
                 } else if(viewName.equals(EXPENSESVIEW)) {
                     return injector.instanceOf(ExpensesView.class);
+                } else if(viewName.equals(MONTHLYFEESVIEW)) {
+                    return injector.instanceOf(MonthlyFeesView.class);
                 } else {
                     return new Navigator.EmptyView();
                 }
