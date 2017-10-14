@@ -38,5 +38,6 @@ public class MonthlyFee {
     public Date creationDate = new Date();
 
     @Min(0)
-    public int amount;
+    @NotNull
+    public Integer amount = 0;
 }
