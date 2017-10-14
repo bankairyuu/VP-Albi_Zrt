@@ -3,6 +3,7 @@ package vaadin.views;
 import backend.models.MonthlyFee;
 import backend.repositories.MonthlyFeeRepository;
 import backend.services.MonthlyFeeService;
+import com.vaadin.data.BeanValidationBinder;
 import com.vaadin.data.Binder;
 import com.vaadin.data.ValidationException;
 import com.vaadin.data.converter.StringToIntegerConverter;
@@ -122,7 +123,7 @@ public class MonthlyFeesView extends CustomComponent implements View {
         }
 
         private void initBinder() {
-            binder = new Binder<>(MonthlyFee.class);
+            binder = new BeanValidationBinder<>(MonthlyFee.class);
 
             binder.forField(amount).withConverter(
                     new StringToIntegerConverter("Invalid value"))
