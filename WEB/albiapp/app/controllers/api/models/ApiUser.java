@@ -4,22 +4,24 @@ package controllers.api.models;
 import backend.models.FlatUser;
 
 public class ApiUser {
-    public long id;
-    public String userName;
-    public String password;
-    public String bankAccountNumber;
-    public String phoneNumber;
-    public String email;
-    public String nickname;
+    public long ID;
+    public String Name;
+    public String UserName;
+    public String Password;
+    public String BankAccountNumber;
+    public String PhoneNumber;
+    public String Email;
+    public String Nickname;
 
     public ApiUser(FlatUser flatUser) {
-        this.id = flatUser.id;
-        this.userName = flatUser.userName;
-        this.password = flatUser.password;
-        this.bankAccountNumber = flatUser.bankAccountNumber;
-        this.phoneNumber = flatUser.phoneNumber;
-        this.email = flatUser.email;
-        this.nickname = flatUser.nickname;
+        this.ID = flatUser.id;
+        this.UserName = flatUser.userName;
+        this.Name = flatUser.name;
+        this.Password = flatUser.password;
+        this.BankAccountNumber = flatUser.bankAccountNumber;
+        this.PhoneNumber = flatUser.phoneNumber;
+        this.Email = flatUser.email;
+        this.Nickname = flatUser.nickname;
     }
 
     public ApiUser() {

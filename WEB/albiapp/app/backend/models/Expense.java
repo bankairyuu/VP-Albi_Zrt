@@ -4,13 +4,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
 public class Expense {
-    public enum SharingType {
-        PERSONAL,
-        COMMON;
+    public enum SharingType implements NamedEnum {
+        PERSONAL("Personal"),
+        COMMON("Common");
+
+        private final String name;
+
+        SharingType(String name) {
+            this.name = name;
+        }
+
+
+        @Override
+        public String getName() {
+            return name;
+        }
     }
 
     @Id
@@ -20,20 +33,26 @@ public class Expense {
     public Date creationTime = new Date();
 
     @ManyToOne
+    @NotNull
     public FlatUser from;
 
     @ManyToOne
+    @NotNull
     public FlatUser to;
 
+    @NotNull
     public String name;
 
     public String description;
 
+    @NotNull
     public SharingType sharingType;
 
-    public int amount;
+    @NotNull
+    public Integer amount = 0;
 
-    public boolean apartmentCost;
+    @NotNull
+    public Boolean apartmentCost;
 
     public Date expenseMonth = new Date();
 
