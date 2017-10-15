@@ -54,7 +54,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            Views.UsersView user = (Pages.Views.UsersView)UsersDataGrid.SelectedItem;
+            Views.UsersView user = (Views.UsersView)UsersDataGrid.SelectedItem;
             DatabaseConnector.DatabaseConnector.DeleteUser(user);
         }
     }

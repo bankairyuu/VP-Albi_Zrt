@@ -304,6 +304,17 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
 
         #region Task Handling
 
+        public static bool AddTask(Model.Task t)
+        {
+            foreach (Model.Task task in Tasks)
+            {
+                if (t.ID < task.ID) t.ID = task.ID;
+                if (t.ID == task.ID) t.ID++;
+            }
+            Tasks.Add(t);
+            return true;
+        }
+
         public static bool UpdateTask()
         {
             /*

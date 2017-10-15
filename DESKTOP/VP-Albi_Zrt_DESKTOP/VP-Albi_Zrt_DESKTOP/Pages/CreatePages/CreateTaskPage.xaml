@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:VP_Albi_Zrt_DESKTOP.Pages.CreatePages"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Height="290" Width="380"
+      Height="330" Width="380"
       Title="CreateTaskPage">
 
     <Grid>
@@ -23,6 +23,8 @@
             <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30" Name="ToGridRow"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
@@ -33,17 +35,22 @@
 
         <!---->
         
-        <Label Content="From"                       Grid.Column="1" Grid.Row="1"></Label>
-        <Label Content="To"                         Grid.Column="1" Grid.Row="3"></Label>
-        <Label Content="Description"                Grid.Column="1" Grid.Row="5"></Label>
-        <Label Content="Requested Completion Date"  Grid.Column="1" Grid.Row="7"></Label>
+        <Label Content="Task name"                  Grid.Column="1" Grid.Row="1"></Label>
+        <Label Content="From"                       Grid.Column="1" Grid.Row="3"></Label>
+        <Label Content="To"                         Grid.Column="1" Grid.Row="5"></Label>
+        <Label Content="Description"                Grid.Column="1" Grid.Row="7"></Label>
+        <Label Content="Requested Completion Date"  Grid.Column="1" Grid.Row="9"></Label>
         
-        <ComboBox   Name="From"                      Grid.Column="3" Grid.Row="1"></ComboBox>
-        <ComboBox   Name="To"                        Grid.Column="3" Grid.Row="3"></ComboBox>
-        <TextBox    Name="Description"               Grid.Column="3" Grid.Row="5" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"></TextBox>
-        <DatePicker Name="RequestedCompletitionDate" Grid.Column="3" Grid.Row="7" VerticalContentAlignment="Center"></DatePicker>
+        <TextBox    Name="TaskName"                  Grid.Column="3" Grid.Row="1" VerticalContentAlignment="Center"></TextBox>
+        <ComboBox   Name="From"                      Grid.Column="3" Grid.Row="3"></ComboBox>
+        <Expander   Name="To"                        Grid.Column="3" Grid.Row="5">
+            <StackPanel Name="ToStackPanel">
+            </StackPanel>
+        </Expander>
+        <TextBox    Name="Description"               Grid.Column="3" Grid.Row="7" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"></TextBox>
+        <DatePicker Name="RequestedCompletitionDate" Grid.Column="3" Grid.Row="9" VerticalContentAlignment="Center" DisplayDate="2017-10-15" FirstDayOfWeek="Monday"/>
         
-        <Button Name="SaveButton"   Content="Save"   Grid.Column="1" Grid.Row="9" Width="120" Click="SaveButton_Click"></Button>
-        <Button Name="CancelButton" Content="Cancel" Grid.Column="3" Grid.Row="9" Width="120" HorizontalAlignment="Right" Click="CancelButton_Click"></Button>
+        <Button Name="SaveButton"   Content="Save"   Grid.Column="1" Grid.Row="11" Width="120" Click="SaveButton_Click"></Button>
+        <Button Name="CancelButton" Content="Cancel" Grid.Column="3" Grid.Row="11" Width="120" HorizontalAlignment="Right" Click="CancelButton_Click"></Button>
     </Grid>
 </Page>
