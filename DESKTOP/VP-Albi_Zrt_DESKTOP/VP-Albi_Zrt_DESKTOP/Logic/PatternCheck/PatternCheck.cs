@@ -9,7 +9,7 @@ namespace VP_Albi_Zrt_DESKTOP.Logic.PatternCheck
 {
     public static class PatternCheck
     {
-        public enum ePatterns { Email, Phone, CreditCardNumber }
+        public enum ePatterns { Email, Phone, CreditCardNumber, Date }
 
         public static bool CheckToPattern(ePatterns p, string d)
         {
@@ -36,6 +36,23 @@ namespace VP_Albi_Zrt_DESKTOP.Logic.PatternCheck
                     Regex rxc = new Regex(CreditCardPatter, RegexOptions.Compiled | RegexOptions.IgnoreCase);
                     if (rxc.IsMatch(d)) return true;
                     break;
+                case ePatterns.Date:
+                    try
+                    {
+                        DateTime dateTime = Convert.ToDateTime(d);
+                        if (dateTime.CompareTo(DateTime.Now)>=0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    catch
+                    {
+                        return false;
+                    }
             }
             return false;
         }
