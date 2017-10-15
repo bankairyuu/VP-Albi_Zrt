@@ -80,7 +80,7 @@ namespace VP_Albi_Zrt_DESKTOP.Windows
                         break;
                     case ePage.Tasks:
                         this.Title = "Edit Task";
-                        Pages.UpdatePages.UpdateTaskPage taskPage = new Pages.UpdatePages.UpdateTaskPage((Pages.Views.TasksView)o);
+                        Pages.UpdatePages.UpdateTaskPageByRequester taskPage = new Pages.UpdatePages.UpdateTaskPageByRequester((Pages.Views.TasksView)o);
                         this.Content = taskPage;
                         this.Height = taskPage.Height + 30;
                         this.Width = taskPage.Width + 30;

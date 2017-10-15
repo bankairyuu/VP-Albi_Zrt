@@ -1,4 +1,4 @@
-﻿<Page x:Class="VP_Albi_Zrt_DESKTOP.Pages.UpdatePages.UpdateTaskPage"
+﻿<Page x:Class="VP_Albi_Zrt_DESKTOP.Pages.UpdatePages.UpdateTaskPageByRequester"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -38,7 +38,7 @@
         <Label Content="Description"                Grid.Column="1" Grid.Row="5"></Label>
         <Label Content="Requested Completion Date"  Grid.Column="1" Grid.Row="7"></Label>
         
-        <ComboBox   Name="From"                      Grid.Column="3" Grid.Row="1"></ComboBox>
+        <Label      Name="From"                      Grid.Column="3" Grid.Row="1"></Label>
         <ComboBox   Name="To"                        Grid.Column="3" Grid.Row="3"></ComboBox>
         <TextBox    Name="Description"               Grid.Column="3" Grid.Row="5" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"></TextBox>
         <DatePicker Name="RequestedCompletitionDate" Grid.Column="3" Grid.Row="7" VerticalContentAlignment="Center"></DatePicker>

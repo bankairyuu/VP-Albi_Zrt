@@ -8,10 +8,11 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
 {
     public static class DatabaseConnector
     {
-        public static List<Model.User>          Users       = new List<Model.User>();
-        public static List<Model.Expense>       Expenses    = new List<Model.Expense>();
-        public static List<Model.Task>          Tasks       = new List<Model.Task>();
-        public static List<Model.MonthlyFees>   MonthlyFees = new List<Model.MonthlyFees>();
+        public static List<Model.User>           Users          = new List<Model.User>();
+        public static List<Model.Expense>        Expenses       = new List<Model.Expense>();
+        public static List<Model.Task>           Tasks          = new List<Model.Task>();
+        public static List<Model.MonthlyFees>    MonthlyFees    = new List<Model.MonthlyFees>();
+        public static Dictionary<string, string> UserDictionary = new Dictionary<string, string>();
 
         static DatabaseConnector()
         {
@@ -236,6 +237,11 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
             MonthlyFees.Add(Net);
             MonthlyFees.Add(Villany);
             #endregion
+
+            foreach (Model.User user in Users)
+            {
+                UserDictionary.Add(user.Name, user.Username);
+            }
         }
 
         #region User handling operations
@@ -315,22 +321,26 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
             return true;
         }
 
-        public static bool UpdateTask()
+        /// <summary>
+        /// Update task with acceptance/acceptance with message/decline with message, but not reassigne
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="acceptanceProperty"></param>
+        /// <param name="acceptanceMessage"></param>
+        /// <param name="taskStatus"></param>
+        /// <returns></returns>
+        public static bool UpdateTask(int id, Model.Task.eAcceptanceProperty acceptanceProperty, string acceptanceMessage, Model.Task.eStatus taskStatus)
         {
-            /*
-            Model.User user = SearchUser(username);
+            Model.Task task = SearchTask(id);
 
-            if (user != null)
+            if (task != null)
             {
-                user.Phone = phone;
-                user.Password = password;
-                user.Email = email;
-                user.Name = name;
-                user.Nickname = nickname;
-                user.CreditCardNumber = creditcardnumber;
+                task.AcceptanceProperty = acceptanceProperty;
+                task.AcceptanceMessage = acceptanceMessage;
+                task.TaskStatus = taskStatus;
+
                 return true;
             }
-            */
 
             return false;
         }

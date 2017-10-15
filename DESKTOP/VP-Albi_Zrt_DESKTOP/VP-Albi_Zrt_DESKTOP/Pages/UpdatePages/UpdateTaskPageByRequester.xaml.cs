@@ -16,13 +16,25 @@ using System.Windows.Shapes;
 namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
 {
     /// <summary>
-    /// Interaction logic for UpdateTaskPage.xaml
+    /// Interaction logic for UpdateTaskPageByRequester.xaml
     /// </summary>
-    public partial class UpdateTaskPage : Page
+    public partial class UpdateTaskPageByRequester : Page
     {
-        public UpdateTaskPage(Pages.Views.TasksView t)
+        List<string> Users = new List<string>();
+
+        public UpdateTaskPageByRequester(Pages.Views.TasksView t)
         {
+            foreach(Model.User user in DatabaseConnector.DatabaseConnector.Users)
+            {
+                Users.Add(user.Name);
+            }
             InitializeComponent();
+            this.From.Content = t.From;
+            this.To.ItemsSource = Users;
+            this.To.SelectedItem = t.To;
+            this.Description.Text = t.Description;
+            this.RequestedCompletitionDate.Text = t.RequestedCompletionDate.ToString();
+
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
