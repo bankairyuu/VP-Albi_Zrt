@@ -1,12 +1,15 @@
 package vaadin.components;
 
-import com.vaadin.data.BeanValidationBinder;
-import com.vaadin.data.Binder;
-import com.vaadin.data.ValidationException;
+import com.vaadin.data.*;
+import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.*;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public abstract class EntityEditor<T> extends CustomComponent implements EditorInterface<T>{
 
@@ -35,8 +38,30 @@ public abstract class EntityEditor<T> extends CustomComponent implements EditorI
 
     private void initBinder() {
         binder = new BeanValidationBinder<>(entityClass);
-        binder.setStatusLabel(errorLabel);
+        errorLabel.setContentMode(ContentMode.HTML);
         bindFields(binder);
+
+        BinderValidationStatusHandler defaultHandler = binder.getValidationStatusHandler();
+
+        binder.setValidationStatusHandler(status -> {
+            // create an error message on failed bean level validations
+            List<ValidationResult> errors = status.getBeanValidationErrors();
+
+            // collect all bean level error messages into a single string,
+            // separating each message with a <br> tag
+            String errorMessage = errors.stream().map(ValidationResult::getErrorMessage)
+                    // sanitize the individual error strings to avoid code injection
+                    // since we are displaying the resulting string as HTML
+                    .map(errorString -> Jsoup.clean(errorString, Whitelist.simpleText()))
+                    .collect(Collectors.joining("<br>"));
+
+            // finally, display all bean level validation errors in a single label
+            errorLabel.setValue(errorMessage);
+            errorLabel.setVisible(!errorMessage.isEmpty());
+
+            // Let the default handler show messages for each field
+            defaultHandler.statusChange(status);
+        });
     }
 
     public void load(T entityToEdit) {

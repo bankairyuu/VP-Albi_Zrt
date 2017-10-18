@@ -66,6 +66,7 @@ public abstract class EntityGrid<T> extends CustomComponent {
         HorizontalLayout actionsLayout = new HorizontalLayout();
         actionsLayout.addComponent(createEditButton(entity));
         actionsLayout.addComponent(createDeleteButton(entity));
+        actionsLayout.setSpacing(true);
 
         return actionsLayout;
     }
