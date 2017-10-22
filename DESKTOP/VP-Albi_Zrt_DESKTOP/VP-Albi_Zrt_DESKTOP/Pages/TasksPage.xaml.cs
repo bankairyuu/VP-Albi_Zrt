@@ -55,9 +55,14 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             Views.TasksView task = (Views.TasksView)TasksDataGrid.SelectedItem;
+            Views.TasksView WFAtask = (Views.TasksView)WaitingForAcceptance.SelectedItem;
             if (task != null)
             {
                 new Windows.CUWindow(Windows.CUWindow.ePage.Tasks, Windows.CUWindow.eMode.Update, task).Show();
+            }
+            else if (WFAtask != null)
+            {
+                new Windows.CUWindow(Windows.CUWindow.ePage.Tasks, Windows.CUWindow.eMode.Update, WFAtask).Show();
             }
             else
             {

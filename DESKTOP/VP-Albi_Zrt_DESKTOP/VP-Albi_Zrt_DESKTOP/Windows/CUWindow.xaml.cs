@@ -81,24 +81,39 @@ namespace VP_Albi_Zrt_DESKTOP.Windows
                     case ePage.Tasks:
                         this.Title = "Edit Task";
                         if (Logic.PermissionHandling.LoginHandler.LoggedInUserName == ((Pages.Views.TasksView)o).From)
-                        {
+                        {   //Te vagy a task kiírója
                             if (Logic.PermissionHandling.LoginHandler.LoggedInUserName == ((Pages.Views.TasksView)o).To)
-                            {
+                            {   //Saját magadnak szerkeszted a saját magad által kiírt taskot
                                 Pages.UpdatePages.UpdateTaskPageByAssigned taskPage = new Pages.UpdatePages.UpdateTaskPageByAssigned((Pages.Views.TasksView)o);
                                 this.Content = taskPage;
                                 this.Height = taskPage.Height + 30;
                                 this.Width = taskPage.Width + 30;
                             }
                             else
-                            {
-                                Pages.UpdatePages.UpdateTaskPageByRequester taskPage = new Pages.UpdatePages.UpdateTaskPageByRequester((Pages.Views.TasksView)o);
-                                this.Content = taskPage;
-                                this.Height = taskPage.Height + 30;
-                                this.Width = taskPage.Width + 30;
+                            {   //A Task kiírója te vagy, viszont másnak írtad ki azt
+                                if (((Pages.Views.TasksView)o).AcceptanceProperty == Model.Task.eAcceptanceProperty.Accepted_with_conditions || ((Pages.Views.TasksView)o).AcceptanceProperty == Model.Task.eAcceptanceProperty.Denied)
+                                {   //A task amit kiírtál, feltételes elfogadás, vagy visszautasítás állapotban van
+                                    Pages.UpdatePages.UpdateTaskPageByRequester taskPage = new Pages.UpdatePages.UpdateTaskPageByRequester((Pages.Views.TasksView)o);
+                                    this.Content = taskPage;
+                                    this.Height = taskPage.Height + 30;
+                                    this.Width = taskPage.Width + 30;
+                                }
+                                else if (((Pages.Views.TasksView)o).AcceptanceProperty == Model.Task.eAcceptanceProperty.Waiting_for_reply)
+                                {   // A task, amit valakire kiírtál nem feltételes elfogadás, vagy visszautasítás állapotban van -> várakozik, vagy elfogadva
+                                    //TODO: Ide még kelleni fog az, hogy csak az admin szerkeszthessen, vagy saját magad ebben az állapotban a kiírtakat még szerkeszthessed!!!
+                                    Pages.UpdatePages.UpdateTaskPageByRequester taskPage = new Pages.UpdatePages.UpdateTaskPageByRequester((Pages.Views.TasksView)o);
+                                    this.Content = taskPage;
+                                    this.Height = taskPage.Height + 30;
+                                    this.Width = taskPage.Width + 30;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("This item is already accepted and not editable for the requester anymore");
+                                }
                             }
                         }
                         else
-                        {
+                        {   // A taskot valaki kiírta másra
                             Pages.UpdatePages.UpdateTaskPageByAssigned taskPage = new Pages.UpdatePages.UpdateTaskPageByAssigned((Pages.Views.TasksView)o);
                             this.Content = taskPage;
                             this.Height = taskPage.Height + 30;

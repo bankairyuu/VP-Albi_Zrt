@@ -25,7 +25,8 @@
             <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="0" Name="DateSection"></RowDefinition>
+            <RowDefinition Height="0" Name="AcceptanceSection"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
@@ -37,13 +38,15 @@
         <Label Content="To"                         Grid.Column="1" Grid.Row="3"></Label>
         <Label Content="Description"                Grid.Column="1" Grid.Row="5"></Label>
         <Label Content="Requested Completion Date"  Grid.Column="1" Grid.Row="7"></Label>
+        <Label Content="Accept/Denie criteria"      Grid.Column="1" Grid.Row="8"></Label>
         
         <Label      Name="From"                      Grid.Column="3" Grid.Row="1"></Label>
         <ComboBox   Name="To"                        Grid.Column="3" Grid.Row="3"></ComboBox>
         <TextBox    Name="Description"               Grid.Column="3" Grid.Row="5" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"></TextBox>
         <DatePicker Name="RequestedCompletitionDate" Grid.Column="3" Grid.Row="7" VerticalContentAlignment="Center"></DatePicker>
+        <TextBox    Name="AcceptanceCriteria"        Grid.Column="3" Grid.Row="8"></TextBox>
         
-        <Button Name="SaveButton"   Content="Save"   Grid.Column="1" Grid.Row="9" Width="120" Click="SaveButton_Click"></Button>
-        <Button Name="CancelButton" Content="Cancel" Grid.Column="3" Grid.Row="9" Width="120" HorizontalAlignment="Right" Click="CancelButton_Click"></Button>
+        <Button Name="SaveButton"   Content="Save"   Grid.Column="1" Grid.Row="10" Width="120" Click="SaveButton_Click"></Button>
+        <Button Name="CancelButton" Content="Cancel" Grid.Column="3" Grid.Row="10" Width="120" HorizontalAlignment="Right" Click="CancelButton_Click"></Button>
     </Grid>
 </Page>

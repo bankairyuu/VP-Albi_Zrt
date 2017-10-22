@@ -252,12 +252,25 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
                 Description = "Asdf ad magának feladat",
                 RequestedCompletionDate = DateTime.Now.AddDays(5),
             };
+            Model.Task AsdfEldogad = new Model.Task
+            {
+                ID = 7,
+                From = asdf,
+                TaskStatus = Model.Task.eStatus.Acceptence,
+                To = Krisz,
+                CreationDate = DateTime.Now,
+                AcceptanceProperty = Model.Task.eAcceptanceProperty.Accepted_with_conditions,
+                AcceptanceMessage = "de akkor legyen sör",
+                Description = "Asdf el kell fogadjon feladat feltételt",
+                RequestedCompletionDate = DateTime.Now.AddDays(5),
+            };
             Tasks.Add(Konyhatakarítás);
             Tasks.Add(Fürdőtakarítás);
             Tasks.Add(Menedzsmentprogi);
             Tasks.Add(AsdfAd);
             Tasks.Add(AsdfKap);
             Tasks.Add(AsdfAdKap);
+            Tasks.Add(AsdfEldogad);
             #endregion
 
             #region MonthlyFees
