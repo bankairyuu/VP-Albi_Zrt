@@ -22,9 +22,11 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
     {
         List<string> Users = new List<string>();
         private bool criteriaContext = false;
+        Views.TasksView tv;
 
         public UpdateTaskPageByAssigned(Pages.Views.TasksView t)
         {
+            tv = t;
             foreach (Model.User user in DatabaseConnector.DatabaseConnector.Users)
             {
                 Users.Add(user.Name);
@@ -41,7 +43,31 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.Acceptance.SelectedIndex != 3)
+            {
+                if (this.Acceptance.SelectedIndex == 1 || this.Acceptance.SelectedIndex == 2)
+                {
+                    if (!string.IsNullOrEmpty(this.Criteria.Text) && !string.IsNullOrWhiteSpace(this.Criteria.Text))
+                    {
+                        DatabaseConnector.DatabaseConnector.UpdateTask(tv.ID, (Model.Task.eAcceptanceProperty)Acceptance.SelectedItem, Criteria.Text, Model.Task.eStatus.Acceptence);
+                    }
+                }
+                else
+                {
+                    DatabaseConnector.DatabaseConnector.UpdateTask(tv.ID, (Model.Task.eAcceptanceProperty)Acceptance.SelectedItem, "", Model.Task.eStatus.In_work);
+                }
+                MessageBox.Show("User Updated");
+                Windows.CUWindow cuw = Application.Current.MainWindow as Windows.CUWindow;
+                if (cuw != null)
+                {
+                    cuw.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("You have to accept or denie the task!\n" +
+                    "If you want to do nothing, click on Cancel");
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

@@ -18,6 +18,10 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
@@ -25,10 +29,26 @@
 
         <!---->
         
-        <DataGrid Name="TasksDataGrid" Grid.ColumnSpan="7" IsReadOnly="True"/>
+        <Label Content="Tasks"                  Grid.ColumnSpan="7" FontSize="10">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA1C9AA" Offset="1"/>
+                    <GradientStop Color="#FF065461"/>
+                </LinearGradientBrush>
+            </Label.Background></Label>
+        <DataGrid Name="TasksDataGrid"          Grid.Row="1" Grid.ColumnSpan="7" IsReadOnly="True"/>
+        <GridSplitter                           Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2" Height="5" HorizontalAlignment="Stretch"></GridSplitter>
+        <Label Content="Tasks waiting for acceptance" Grid.Row="3" Grid.ColumnSpan="7" FontSize="10">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA1C9AA" Offset="1"/>
+                    <GradientStop Color="#FF065461"/>
+                </LinearGradientBrush>
+            </Label.Background></Label>
+        <DataGrid Name="WaitingForAcceptance"   Grid.ColumnSpan="7" IsReadOnly="True" Grid.Row="4"/>
         
-        <Button Name="Create"   Content="Create"    Grid.Column="1" Grid.Row="2" Click="Create_Click"></Button>
-        <Button Name="Edit"     Content="Edit"      Grid.Column="3" Grid.Row="2" Click="Edit_Click"></Button>
-        <Button Name="Delete"   Content="Delete"    Grid.Column="5" Grid.Row="2" Click="Delete_Click"></Button>
+        <Button Name="Create"   Content="Create"    Grid.Column="1" Grid.Row="6" Click="Create_Click"></Button>
+        <Button Name="Edit"     Content="Edit"      Grid.Column="3" Grid.Row="6" Click="Edit_Click"></Button>
+        <Button Name="Delete"   Content="Delete"    Grid.Column="5" Grid.Row="6" Click="Delete_Click"></Button>
     </Grid>
 </Page>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
 {
@@ -401,7 +402,7 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
         {
             foreach (Model.Task t in Tasks)
             {
-                if (t.ID != id) return t;
+                if (t.ID == id) return t;
             }
             return null;
         }

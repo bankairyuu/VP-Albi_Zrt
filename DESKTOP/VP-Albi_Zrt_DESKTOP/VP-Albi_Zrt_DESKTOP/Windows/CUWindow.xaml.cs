@@ -82,15 +82,16 @@ namespace VP_Albi_Zrt_DESKTOP.Windows
                         this.Title = "Edit Task";
                         if (Logic.PermissionHandling.LoginHandler.LoggedInUserName == ((Pages.Views.TasksView)o).From)
                         {
-                            Pages.UpdatePages.UpdateTaskPageByRequester taskPage;
-
                             if (Logic.PermissionHandling.LoginHandler.LoggedInUserName == ((Pages.Views.TasksView)o).To)
                             {
-
+                                Pages.UpdatePages.UpdateTaskPageByAssigned taskPage = new Pages.UpdatePages.UpdateTaskPageByAssigned((Pages.Views.TasksView)o);
+                                this.Content = taskPage;
+                                this.Height = taskPage.Height + 30;
+                                this.Width = taskPage.Width + 30;
                             }
                             else
                             {
-                                taskPage = new Pages.UpdatePages.UpdateTaskPageByRequester((Pages.Views.TasksView)o);
+                                Pages.UpdatePages.UpdateTaskPageByRequester taskPage = new Pages.UpdatePages.UpdateTaskPageByRequester((Pages.Views.TasksView)o);
                                 this.Content = taskPage;
                                 this.Height = taskPage.Height + 30;
                                 this.Width = taskPage.Width + 30;
