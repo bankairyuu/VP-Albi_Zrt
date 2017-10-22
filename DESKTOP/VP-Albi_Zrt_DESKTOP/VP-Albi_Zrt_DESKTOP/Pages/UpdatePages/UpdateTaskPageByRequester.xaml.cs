@@ -22,11 +22,13 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
     {
         List<string> Users = new List<string>();
         int state;
+        Pages.Views.TasksView refTask;
 
         public UpdateTaskPageByRequester(Pages.Views.TasksView t)
         {
             // State 0==normal edit ; state==1 Accept the acceptance message ; state==2 Suggest an other acceptance message
             state = 0;
+            refTask = t;
 
             foreach(Model.User user in DatabaseConnector.DatabaseConnector.Users)
             {
@@ -56,6 +58,9 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
             }
         }
 
+        //TODO: leprogramozni azt, hogy megváltozik az Acceptance message
+        //TODO: leprogramozni azt, hogy megváltozik az assigned user
+
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             if (state == 0)
@@ -67,10 +72,20 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
                     && Logic.PatternCheck.PatternCheck.CheckToPattern(Logic.PatternCheck.PatternCheck.ePatterns.Date, RequestedCompletitionDate.SelectedDate.ToString())
                    )
                 {
-
+                    DatabaseConnector.DatabaseConnector.UpdateTask(refTask.ID, Model.Task.eAcceptanceProperty.Waiting_for_reply, "", Model.Task.eStatus.Open);
                 }
             }
-            else
+            else if (state == 1)
+            {
+                if (To.SelectedItem != null
+                    && !string.IsNullOrEmpty(Description.Text)
+                    && !string.IsNullOrWhiteSpace(Description.Text)
+                   )
+                {
+                    DatabaseConnector.DatabaseConnector.UpdateTask(refTask.ID, Model.Task.eAcceptanceProperty.Accepted, refTask.AcceptanceMessage, Model.Task.eStatus.In_work);
+                }
+            }
+            else if (state == 2)
             {
 
             }
