@@ -22,14 +22,28 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     {
         Windows.CUWindow cuw;
         List<Views.TasksView> Tasks = new List<Views.TasksView>();
+        List<Views.TasksView> WFAtasks = new List<Views.TasksView>();
 
         public TasksPage()
         {
             foreach (Model.Task task in DatabaseConnector.DatabaseConnector.Tasks) Tasks.Add(new Views.TasksView(task));
+            foreach (Model.Task task in DatabaseConnector.DatabaseConnector.Tasks)
+            {
+                if (
+                     (      task.AcceptanceProperty == Model.Task.eAcceptanceProperty.Accepted_with_conditions
+                        ||  task.AcceptanceProperty == Model.Task.eAcceptanceProperty.Denied
+                     )
+                     && task.From.Username == Logic.PermissionHandling.LoginHandler.LoggedInUserName
+                   )
+                {
+                    WFAtasks.Add(new Views.TasksView(task));
+                }
+            }
 
             InitializeComponent();
 
             this.TasksDataGrid.ItemsSource = Tasks;
+            this.WaitingForAcceptance.ItemsSource = WFAtasks;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -41,9 +55,14 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             Views.TasksView task = (Views.TasksView)TasksDataGrid.SelectedItem;
+            Views.TasksView WFAtask = (Views.TasksView)WaitingForAcceptance.SelectedItem;
             if (task != null)
             {
                 new Windows.CUWindow(Windows.CUWindow.ePage.Tasks, Windows.CUWindow.eMode.Update, task).Show();
+            }
+            else if (WFAtask != null)
+            {
+                new Windows.CUWindow(Windows.CUWindow.ePage.Tasks, Windows.CUWindow.eMode.Update, WFAtask).Show();
             }
             else
             {

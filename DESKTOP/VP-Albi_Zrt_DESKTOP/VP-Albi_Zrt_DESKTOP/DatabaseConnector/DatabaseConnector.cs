@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
 {
     public static class DatabaseConnector
     {
-        public static List<Model.User>          Users       = new List<Model.User>();
-        public static List<Model.Expense>       Expenses    = new List<Model.Expense>();
-        public static List<Model.Task>          Tasks       = new List<Model.Task>();
-        public static List<Model.MonthlyFees>   MonthlyFees = new List<Model.MonthlyFees>();
+        public static List<Model.User>           Users          = new List<Model.User>();
+        public static List<Model.Expense>        Expenses       = new List<Model.Expense>();
+        public static List<Model.Task>           Tasks          = new List<Model.Task>();
+        public static List<Model.MonthlyFees>    MonthlyFees    = new List<Model.MonthlyFees>();
+        public static Dictionary<string, string> UserDictionary = new Dictionary<string, string>();
 
         static DatabaseConnector()
+        {
+            foreach (Model.User user in Users)
+            {
+                UserDictionary.Add(user.Name, user.Username);
+            }
+        }
+
+        public static void ConnectAndSync()
         {
             #region Users
             Model.User Miki = new Model.User
@@ -71,12 +81,23 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
                 Email = "asdf@fdsa.com",
                 CreditCardNumber = "123456789"
             };
+            Model.User asdf = new Model.User
+            {
+                ID = 6,
+                Name = "asdf",
+                Nickname = "asdf",
+                Username = "asdf",
+                Password = "asdf",
+                Phone = "+36-30-123-4567",
+                Email = "asdf@fdsa.com",
+                CreditCardNumber = "11773470-00551962-00000000"
+            };
             Users.Add(Miki);
             Users.Add(Krisz);
             Users.Add(Kapitány);
             Users.Add(Roli);
             Users.Add(Andi);
-
+            Users.Add(asdf);
             #endregion
 
             #region Expenses
@@ -195,10 +216,61 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
                 Description = "Észrevettem egy hibát, ki kell javítani, majd dumáljuk meg, hogy mi lenne a legjobb megoldás",
                 RequestedCompletionDate = DateTime.Now.AddDays(5),
             };
-
+            Model.Task AsdfAd = new Model.Task
+            {
+                ID = 4,
+                From = asdf,
+                TaskStatus = Model.Task.eStatus.Open,
+                To = Krisz,
+                CreationDate = DateTime.Now,
+                AcceptanceProperty = Model.Task.eAcceptanceProperty.Waiting_for_reply,
+                AcceptanceMessage = "",
+                Description = "Asdf ad feladat",
+                RequestedCompletionDate = DateTime.Now.AddDays(5),
+            };
+            Model.Task AsdfKap = new Model.Task
+            {
+                ID = 5,
+                From = Krisz,
+                TaskStatus = Model.Task.eStatus.Open,
+                To = asdf,
+                CreationDate = DateTime.Now,
+                AcceptanceProperty = Model.Task.eAcceptanceProperty.Waiting_for_reply,
+                AcceptanceMessage = "",
+                Description = "Asdf kap feladat",
+                RequestedCompletionDate = DateTime.Now.AddDays(5),
+            };
+            Model.Task AsdfAdKap = new Model.Task
+            {
+                ID = 6,
+                From = asdf,
+                TaskStatus = Model.Task.eStatus.Open,
+                To = asdf,
+                CreationDate = DateTime.Now,
+                AcceptanceProperty = Model.Task.eAcceptanceProperty.Waiting_for_reply,
+                AcceptanceMessage = "",
+                Description = "Asdf ad magának feladat",
+                RequestedCompletionDate = DateTime.Now.AddDays(5),
+            };
+            Model.Task AsdfEldogad = new Model.Task
+            {
+                ID = 7,
+                From = asdf,
+                TaskStatus = Model.Task.eStatus.Acceptence,
+                To = Krisz,
+                CreationDate = DateTime.Now,
+                AcceptanceProperty = Model.Task.eAcceptanceProperty.Accepted_with_conditions,
+                AcceptanceMessage = "de akkor legyen sör",
+                Description = "Asdf el kell fogadjon feladat feltételt",
+                RequestedCompletionDate = DateTime.Now.AddDays(5),
+            };
             Tasks.Add(Konyhatakarítás);
             Tasks.Add(Fürdőtakarítás);
             Tasks.Add(Menedzsmentprogi);
+            Tasks.Add(AsdfAd);
+            Tasks.Add(AsdfKap);
+            Tasks.Add(AsdfAdKap);
+            Tasks.Add(AsdfEldogad);
             #endregion
 
             #region MonthlyFees
@@ -315,22 +387,26 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
             return true;
         }
 
-        public static bool UpdateTask()
+        /// <summary>
+        /// Update task with acceptance/acceptance with message/decline with message, but not reassigne
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="acceptanceProperty"></param>
+        /// <param name="acceptanceMessage"></param>
+        /// <param name="taskStatus"></param>
+        /// <returns></returns>
+        public static bool UpdateTask(int id, Model.Task.eAcceptanceProperty acceptanceProperty, string acceptanceMessage, Model.Task.eStatus taskStatus)
         {
-            /*
-            Model.User user = SearchUser(username);
+            Model.Task task = SearchTask(id);
 
-            if (user != null)
+            if (task != null)
             {
-                user.Phone = phone;
-                user.Password = password;
-                user.Email = email;
-                user.Name = name;
-                user.Nickname = nickname;
-                user.CreditCardNumber = creditcardnumber;
+                task.AcceptanceProperty = acceptanceProperty;
+                task.AcceptanceMessage = acceptanceMessage;
+                task.TaskStatus = taskStatus;
+
                 return true;
             }
-            */
 
             return false;
         }
@@ -339,7 +415,7 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
         {
             foreach (Model.Task t in Tasks)
             {
-                if (t.ID != id) return t;
+                if (t.ID == id) return t;
             }
             return null;
         }

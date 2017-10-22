@@ -24,6 +24,14 @@ namespace VP_Albi_Zrt_DESKTOP
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                DatabaseConnector.DatabaseConnector.ConnectAndSync();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Connection failed:\n" + exc.Message);
+            }
         }
 
         private void Login()
