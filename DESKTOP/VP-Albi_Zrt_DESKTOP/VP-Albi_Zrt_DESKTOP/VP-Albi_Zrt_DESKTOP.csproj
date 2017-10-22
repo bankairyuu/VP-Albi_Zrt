@@ -105,6 +105,9 @@
     <Compile Include="Pages\UpdatePages\UpdateMonthlyFeePage.xaml.cs">
       <DependentUpon>UpdateMonthlyFeePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UpdatePages\UpdateTaskPageByAssigned.xaml.cs">
+      <DependentUpon>UpdateTaskPageByAssigned.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\UpdatePages\UpdateTaskPageByRequester.xaml.cs">
       <DependentUpon>UpdateTaskPageByRequester.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\UpdatePages\UpdateMonthlyFeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdatePages\UpdateTaskPageByAssigned.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

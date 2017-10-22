@@ -80,10 +80,29 @@ namespace VP_Albi_Zrt_DESKTOP.Windows
                         break;
                     case ePage.Tasks:
                         this.Title = "Edit Task";
-                        Pages.UpdatePages.UpdateTaskPageByRequester taskPage = new Pages.UpdatePages.UpdateTaskPageByRequester((Pages.Views.TasksView)o);
-                        this.Content = taskPage;
-                        this.Height = taskPage.Height + 30;
-                        this.Width = taskPage.Width + 30;
+                        if (Logic.PermissionHandling.LoginHandler.LoggedInUserName == ((Pages.Views.TasksView)o).From)
+                        {
+                            Pages.UpdatePages.UpdateTaskPageByRequester taskPage;
+
+                            if (Logic.PermissionHandling.LoginHandler.LoggedInUserName == ((Pages.Views.TasksView)o).To)
+                            {
+
+                            }
+                            else
+                            {
+                                taskPage = new Pages.UpdatePages.UpdateTaskPageByRequester((Pages.Views.TasksView)o);
+                                this.Content = taskPage;
+                                this.Height = taskPage.Height + 30;
+                                this.Width = taskPage.Width + 30;
+                            }
+                        }
+                        else
+                        {
+                            Pages.UpdatePages.UpdateTaskPageByAssigned taskPage = new Pages.UpdatePages.UpdateTaskPageByAssigned((Pages.Views.TasksView)o);
+                            this.Content = taskPage;
+                            this.Height = taskPage.Height + 30;
+                            this.Width = taskPage.Width + 30;
+                        }
                         this.ResizeMode = ResizeMode.NoResize;
                         break;
                     case ePage.Expense:

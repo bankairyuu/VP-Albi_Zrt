@@ -24,6 +24,7 @@ namespace VP_Albi_Zrt_DESKTOP.Windows
         public VP_Albi_Zrt_Main()
         {
             InitializeComponent();
+            this.Title += " :: " + Logic.PermissionHandling.LoginHandler.LoggedInUserName;
             ActivePage.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             ActivePage.Content = new DefaultPage();
         }
@@ -31,25 +32,25 @@ namespace VP_Albi_Zrt_DESKTOP.Windows
         public void UsersButton_Click(object sender, RoutedEventArgs e)
         {
             ActivePage.Content = new UsersPage();
-            this.Title = "VP-Albi Zrt. :: User datas :: ";
+            this.Title = "VP-Albi Zrt. :: User datas :: " + Logic.PermissionHandling.LoginHandler.LoggedInUserName;
         }
 
         public void TasksButton_Click(object sender, RoutedEventArgs e)
         {
             ActivePage.Content = new TasksPage();
-            this.Title = "VP-Albi Zrt. :: Task datas :: ";
+            this.Title = "VP-Albi Zrt. :: Task datas :: " + Logic.PermissionHandling.LoginHandler.LoggedInUserName;
         }
 
         public void ExpansesButton_Click(object sender, RoutedEventArgs e)
         {
             ActivePage.Content = new ExpensesPage();
-            this.Title = "VP-Albi Zrt. :: Expense datas :: ";
+            this.Title = "VP-Albi Zrt. :: Expense datas :: " + Logic.PermissionHandling.LoginHandler.LoggedInUserName;
         }
 
         public void FeesButton_Click(object sender, RoutedEventArgs e)
         {
             ActivePage.Content = new FeesPage();
-            this.Title = "VP-Albi Zrt. :: Fee datas :: ";
+            this.Title = "VP-Albi Zrt. :: Fee datas :: " + Logic.PermissionHandling.LoginHandler.LoggedInUserName;
         }
     }
 }

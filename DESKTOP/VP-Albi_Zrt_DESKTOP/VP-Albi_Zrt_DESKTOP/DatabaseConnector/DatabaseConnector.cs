@@ -16,6 +16,14 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
 
         static DatabaseConnector()
         {
+            foreach (Model.User user in Users)
+            {
+                UserDictionary.Add(user.Name, user.Username);
+            }
+        }
+
+        public static void ConnectAndSync()
+        {
             #region Users
             Model.User Miki = new Model.User
             {
@@ -72,12 +80,23 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
                 Email = "asdf@fdsa.com",
                 CreditCardNumber = "123456789"
             };
+            Model.User asdf = new Model.User
+            {
+                ID = 6,
+                Name = "asdf",
+                Nickname = "asdf",
+                Username = "asdf",
+                Password = "asdf",
+                Phone = "+36-30-123-4567",
+                Email = "asdf@fdsa.com",
+                CreditCardNumber = "11773470-00551962-00000000"
+            };
             Users.Add(Miki);
             Users.Add(Krisz);
             Users.Add(Kapitány);
             Users.Add(Roli);
             Users.Add(Andi);
-
+            Users.Add(asdf);
             #endregion
 
             #region Expenses
@@ -196,10 +215,48 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
                 Description = "Észrevettem egy hibát, ki kell javítani, majd dumáljuk meg, hogy mi lenne a legjobb megoldás",
                 RequestedCompletionDate = DateTime.Now.AddDays(5),
             };
-
+            Model.Task AsdfAd = new Model.Task
+            {
+                ID = 4,
+                From = asdf,
+                TaskStatus = Model.Task.eStatus.Open,
+                To = Krisz,
+                CreationDate = DateTime.Now,
+                AcceptanceProperty = Model.Task.eAcceptanceProperty.Waiting_for_reply,
+                AcceptanceMessage = "",
+                Description = "Asdf ad feladat",
+                RequestedCompletionDate = DateTime.Now.AddDays(5),
+            };
+            Model.Task AsdfKap = new Model.Task
+            {
+                ID = 5,
+                From = Krisz,
+                TaskStatus = Model.Task.eStatus.Open,
+                To = asdf,
+                CreationDate = DateTime.Now,
+                AcceptanceProperty = Model.Task.eAcceptanceProperty.Waiting_for_reply,
+                AcceptanceMessage = "",
+                Description = "Asdf kap feladat",
+                RequestedCompletionDate = DateTime.Now.AddDays(5),
+            };
+            Model.Task AsdfAdKap = new Model.Task
+            {
+                ID = 6,
+                From = asdf,
+                TaskStatus = Model.Task.eStatus.Open,
+                To = asdf,
+                CreationDate = DateTime.Now,
+                AcceptanceProperty = Model.Task.eAcceptanceProperty.Waiting_for_reply,
+                AcceptanceMessage = "",
+                Description = "Asdf ad magának feladat",
+                RequestedCompletionDate = DateTime.Now.AddDays(5),
+            };
             Tasks.Add(Konyhatakarítás);
             Tasks.Add(Fürdőtakarítás);
             Tasks.Add(Menedzsmentprogi);
+            Tasks.Add(AsdfAd);
+            Tasks.Add(AsdfKap);
+            Tasks.Add(AsdfAdKap);
             #endregion
 
             #region MonthlyFees
@@ -237,11 +294,6 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
             MonthlyFees.Add(Net);
             MonthlyFees.Add(Villany);
             #endregion
-
-            foreach (Model.User user in Users)
-            {
-                UserDictionary.Add(user.Name, user.Username);
-            }
         }
 
         #region User handling operations
