@@ -83,11 +83,18 @@ namespace VP_Albi_Zrt_DESKTOP.Pages.UpdatePages
                    )
                 {
                     DatabaseConnector.DatabaseConnector.UpdateTask(refTask.ID, Model.Task.eAcceptanceProperty.Accepted, refTask.AcceptanceMessage, Model.Task.eStatus.In_work);
+                    Windows.CUWindow cuw = Application.Current.MainWindow as Windows.CUWindow;
+                    if (cuw != null)
+                    {
+                        cuw.Close();
+                    }
                 }
             }
             else if (state == 2)
             {
+                // Megváltozik az assigned user
 
+                // Megváltozik az acceptance message
             }
         }
 

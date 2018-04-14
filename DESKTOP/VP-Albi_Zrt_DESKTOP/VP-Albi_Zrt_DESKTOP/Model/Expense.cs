@@ -21,7 +21,5 @@ namespace VP_Albi_Zrt_DESKTOP.Model
         public bool ApartmentCost { get; set; }
         public DateTime ExpenseMonth { get; set; }
         public bool Paid { get; set; }
-
-        public Expense() { }
     }
 }

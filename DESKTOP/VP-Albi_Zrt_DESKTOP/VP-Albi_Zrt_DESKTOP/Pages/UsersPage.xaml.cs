@@ -22,14 +22,16 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     {
         Windows.CUWindow cuw;
         List<Views.UsersView> Users = new List<Views.UsersView>();
+        System.ComponentModel.BindingList<Views.UsersView> bindingList;
 
         public UsersPage()
         {
             foreach (Model.User user in DatabaseConnector.DatabaseConnector.Users) Users.Add(new Views.UsersView(user));
+            bindingList = new System.ComponentModel.BindingList<Views.UsersView>(Users);
 
             InitializeComponent();
-
-            this.UsersDataGrid.ItemsSource = Users;
+            
+            this.UsersDataGrid.ItemsSource = bindingList;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -56,6 +58,7 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
         {
             Views.UsersView user = (Views.UsersView)UsersDataGrid.SelectedItem;
             DatabaseConnector.DatabaseConnector.DeleteUser(user);
+            bindingList.Remove(user);
         }
     }
 }

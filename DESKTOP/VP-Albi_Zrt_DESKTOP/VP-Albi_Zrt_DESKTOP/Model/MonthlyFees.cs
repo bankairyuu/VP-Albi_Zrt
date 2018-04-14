@@ -14,7 +14,5 @@ namespace VP_Albi_Zrt_DESKTOP.Model
         public DateTime CreationDate { get; set; }
         public eFeeType FeeType { get; set; }
         public int Amount { get; set; }
-
-        public MonthlyFees() { }
     }
 }
