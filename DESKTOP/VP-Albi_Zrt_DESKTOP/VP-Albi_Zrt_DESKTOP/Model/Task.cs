@@ -21,8 +21,5 @@ namespace VP_Albi_Zrt_DESKTOP.Model
         public DateTime PlannedCompletionDate { get; set; }
         public eAcceptanceProperty AcceptanceProperty { get; set; }
         public string AcceptanceMessage { get; set; }
-
-        
-        public Task() { }
     }
 }

@@ -33,7 +33,7 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
                 Nickname = "Professzor úr",
                 Username = "MikiTheProf",
                 Password = "jelszo",
-                Phone = "+36301234567",
+                Phone = "+36-30-123-4567",
                 Email = "asdf@fdsa.com",
                 CreditCardNumber = "123456789"
             };
@@ -44,7 +44,7 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
                 Nickname = "Doktor úr",
                 Username = "KriszTheDoctor",
                 Password = "asdf123asdf",
-                Phone = "+36309894774",
+                Phone = "+36-30-989-4774",
                 Email = "asdf@fdsa.com",
                 CreditCardNumber = "123456789"
             };
@@ -55,7 +55,7 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
                 Nickname = "Kapitány",
                 Username = "LajosTheCaptain",
                 Password = "lol",
-                Phone = "+36301234567",
+                Phone = "+36-30-123-4567",
                 Email = "asdf@fdsa.com",
                 CreditCardNumber = "123456789"
             };
@@ -66,7 +66,7 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
                 Nickname = "Roli",
                 Username = "RoliTheAnchient",
                 Password = "asdf123asdf",
-                Phone = "+36308228258",
+                Phone = "+36-30-822-8258",
                 Email = "asdf@fdsa.com",
                 CreditCardNumber = "123456789"
             };
@@ -77,7 +77,7 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
                 Nickname = "Andi",
                 Username = "AndiTheGirl",
                 Password = "jelszo",
-                Phone = "+36301234567",
+                Phone = "+36-30-123-4567",
                 Email = "asdf@fdsa.com",
                 CreditCardNumber = "123456789"
             };
