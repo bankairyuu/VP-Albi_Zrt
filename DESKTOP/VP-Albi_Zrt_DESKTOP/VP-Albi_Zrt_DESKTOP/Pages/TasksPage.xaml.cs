@@ -23,6 +23,8 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
         Windows.CUWindow cuw;
         List<Views.TasksView> Tasks = new List<Views.TasksView>();
         List<Views.TasksView> WFAtasks = new List<Views.TasksView>();
+        System.ComponentModel.BindingList<Views.TasksView> bindingList_Tasks;
+        System.ComponentModel.BindingList<Views.TasksView> bindingList_WFAtasks;
 
         public TasksPage()
         {
@@ -40,10 +42,13 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
                 }
             }
 
+            bindingList_Tasks = new System.ComponentModel.BindingList<Views.TasksView>(Tasks);
+            bindingList_WFAtasks = new System.ComponentModel.BindingList<Views.TasksView>(WFAtasks);
+
             InitializeComponent();
 
-            this.TasksDataGrid.ItemsSource = Tasks;
-            this.WaitingForAcceptance.ItemsSource = WFAtasks;
+            this.TasksDataGrid.ItemsSource = bindingList_Tasks;
+            this.WaitingForAcceptance.ItemsSource = bindingList_WFAtasks;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -74,6 +79,8 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
         {
             Views.TasksView task = (Views.TasksView)TasksDataGrid.SelectedItem;
             DatabaseConnector.DatabaseConnector.DeleteTask(task);
+
+
         }
     }
 }
