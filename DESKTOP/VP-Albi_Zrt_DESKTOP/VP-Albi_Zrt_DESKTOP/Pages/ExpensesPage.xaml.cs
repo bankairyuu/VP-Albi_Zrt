@@ -20,15 +20,16 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     /// </summary>
     public partial class ExpensesPage : Page
     {
-        List<Pages.Views.ExpensesView> DemoExpenses = new List<Views.ExpensesView>();
+        List<Views.ExpensesView> Expenses = new List<Views.ExpensesView>();
+        System.ComponentModel.BindingList<Views.ExpensesView> bindingList;
 
         public ExpensesPage()
         {
-            foreach (Model.Expense expense in DatabaseConnector.DatabaseConnector.Expenses) DemoExpenses.Add(new Views.ExpensesView(expense));
-
+            foreach (Model.Expense expense in DatabaseConnector.DatabaseConnector.Expenses) Expenses.Add(new Views.ExpensesView(expense));
+            bindingList = new System.ComponentModel.BindingList<Views.ExpensesView>(Expenses);
             InitializeComponent();
 
-            this.ExpensesDataGrid.ItemsSource = DemoExpenses;
+            this.ExpensesDataGrid.ItemsSource = bindingList;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -45,6 +46,8 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             Pages.Views.ExpensesView expense = (Pages.Views.ExpensesView)ExpensesDataGrid.SelectedItem;
+            //DatabaseConnector.DatabaseConnector.DeleteExpense(expense);
+            //bindingList.Remove(expense);
         }
     }
 }
