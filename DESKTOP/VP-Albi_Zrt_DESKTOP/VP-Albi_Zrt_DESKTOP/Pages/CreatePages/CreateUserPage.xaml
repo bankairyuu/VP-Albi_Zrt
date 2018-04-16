@@ -44,7 +44,7 @@
         <Label Content="Password"           Grid.Column="1" Grid.Row="5"></Label>
         <Label Content="Phone"              Grid.Column="1" Grid.Row="7"></Label>
         <Label Content="Credit card number" Grid.Column="1" Grid.Row="9"></Label>
-        <Label Content="Nicnkame"           Grid.Column="1" Grid.Row="11"></Label>
+        <Label Content="Nickname"           Grid.Column="1" Grid.Row="11"></Label>
         <Label Content="Email"              Grid.Column="1" Grid.Row="13"></Label>
         
         <TextBox Name="Name"                Grid.Column="3" Grid.Row="1" VerticalContentAlignment="Center"></TextBox>

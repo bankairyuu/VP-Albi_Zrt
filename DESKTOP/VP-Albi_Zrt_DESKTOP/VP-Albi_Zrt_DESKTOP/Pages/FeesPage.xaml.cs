@@ -20,15 +20,17 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
     /// </summary>
     public partial class FeesPage : Page
     {
-        List<Pages.Views.MonthlyFeesView> MonthlyFees = new List<Views.MonthlyFeesView>();
+        List<Views.MonthlyFeesView> MonthlyFees = new List<Views.MonthlyFeesView>();
+        System.ComponentModel.BindingList<Views.MonthlyFeesView> bindingList;
 
         public FeesPage()
         {
             foreach (Model.MonthlyFees fee in DatabaseConnector.DatabaseConnector.MonthlyFees) MonthlyFees.Add(new Views.MonthlyFeesView(fee));
+            bindingList = new System.ComponentModel.BindingList<Views.MonthlyFeesView>(MonthlyFees);
 
             InitializeComponent();
 
-            this.FeesDataGrid.ItemsSource = MonthlyFees;
+            this.FeesDataGrid.ItemsSource = bindingList;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -44,7 +46,9 @@ namespace VP_Albi_Zrt_DESKTOP.Pages
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            Pages.Views.MonthlyFeesView monthlyfee = (Pages.Views.MonthlyFeesView)FeesDataGrid.SelectedItem;
+            Views.MonthlyFeesView monthlyfee = (Pages.Views.MonthlyFeesView)FeesDataGrid.SelectedItem;
+            //DatabaseConnector.DatabaseConnector.DeleteMonthlyFee(monthlyfee);
+            //bindingList.Remove(monthlyfee);
         }
     }
 }

@@ -371,7 +371,64 @@ namespace VP_Albi_Zrt_DESKTOP.DatabaseConnector
         #endregion
 
         #region Expense handling
+        public static bool AddExpense(Model.Expense e)
+        {
+            foreach (Model.Expense expense in Expenses)
+            {
+                if (e.ID < expense.ID) e.ID = expense.ID;
+                if (e.ID == expense.ID) e.ID++;
+            }
+            Expenses.Add(e);
+            return true;
+        }
 
+        public static bool UpdateExpense(string username, string phone, string password, string email, string name, string nickname, string creditcardnumber)
+        {
+            throw new NotImplementedException();
+            /*
+            Model.Expense expense = SearchExpense(username);
+            
+            if (user != null)
+            {
+                user.Phone = phone;
+                user.Password = password;
+                user.Email = email;
+                user.Name = name;
+                user.Nickname = nickname;
+                user.CreditCardNumber = creditcardnumber;
+                return true;
+            }
+
+            return false;
+            */
+        }
+
+        public static void DeleteExpense(Pages.Views.ExpensesView e)
+        {
+            Model.Expense expense = SearchExpense(e.Name);
+            Expenses.Remove(expense);
+        }
+
+        public static Model.Expense SearchExpense(string expense)
+        {
+            foreach (Model.Expense e in Expenses)
+            {
+                if (e.Name == expense) return e;
+            }
+            return null;
+        }
+
+        public static bool ExistingExpense(string expense)
+        {
+            foreach (Model.Expense e in Expenses)
+            {
+                if (e.Name == expense)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         #endregion
 
         #region Task Handling
